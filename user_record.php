@@ -1,10 +1,15 @@
 <?php
 	session_start();
+	if( $_SESSION['id'] == "" )
+	{
+		header("Location: index.php");
+		die();
+	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title> index </title>
+	<title> user index </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,38 +20,33 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
 
 	<!-- Custom styles for this template -->
-	<link href="css/index.css" rel="stylesheet">
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
+	<link href="css/user_index.css" rel="stylesheet" />
 
 	<!-- Javascript --!>
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
-		$(document).ready(init);
 
-		function init(){
-			$("#search").addClass('active');
-		}
 	</script>
 </head>
 	
 <body>
-	<?php
-		if( !$_SESSION['id'] || $_SESSION['id'] == "" )
-		{
-			include("navbar");
-		}
-		else
-		{
-			include("user_navbar");
-		}
-	?>
+
+	<?php include("user_navbar"); ?>
 
 	<!-- content --!>
 	<div class="container">
-		條件查詢
+		<div class="col-md-2 list" >
+			<ul class="nav">
+				<a href="user_add.php" class="list-group-item">新增借用</a>
+				<a href="user_record.php" class="list-group-item active">借用紀錄</a>
+				<a href="user_index.php" class="list-group-item">管理介面</a>
+			</ul>
+		</div>
+		<div class="col-md-10" >
+		</div>
 	</div><!-- /.container -->
 
     <!-- Bootstrap core JavaScript

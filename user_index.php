@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if( $_SESSION['id'] == "" )
+	{
+		header("Location: index.php");
+		die();
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,39 +30,15 @@
 </head>
 	
 <body>
-	<!-- navbar --!>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php">CCU Dorm Place Borrow</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-				<div class="btn-group pull-right" style="margin-top: 8px;" >
-					<a href="user_index.php" class="btn btn-warning">
-						<span class="glyphicon glyphicon-thumbs-up"></span>Hi SE</a>
-					<a href="index.php" class="btn btn-warning"  >Logout</a>
-				</div>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div>
-	
+
+	<?php include("user_navbar"); ?>
+
 	<!-- content --!>
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
 				<a href="user_add.php" class="list-group-item">新增借用</a>
-				<a href="#" class="list-group-item">審核中借用</a>
-				<a href="#" class="list-group-item">借用紀錄</a>
+				<a href="user_record.php" class="list-group-item">借用紀錄</a>
 				<a href="user_index.php" class="list-group-item active">管理介面</a>
 			</ul>
 		</div>

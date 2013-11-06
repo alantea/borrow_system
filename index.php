@@ -1,7 +1,10 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title> index </title>
+	<title> 場地借用系統 </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,27 +29,16 @@
 </head>
 	
 <body>
-	<!-- navbar --!>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php">CCU 場地借用</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="search.php">條件查詢</a></li>
-					<li><a href="rules.php">借用規則</a></li>
-				</ul>
-				<a href="login.php" class="btn btn-danger pull-right" style="margin-top: 8px;" >Login</a>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div>
-
+	<?php
+		if( !$_SESSION['id'] || $_SESSION['id'] == "" )
+		{
+			include("navbar");
+		}
+		else
+		{
+			include("user_navbar");
+		}
+	?>
 	<!-- content --!>
 	<div class="container">
 		<div class="col-md-4" id="datepicker">

@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if( $_SESSION['id'] != "" )
+	{
+		header("Location: user_index.php");
+		die();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,14 +33,14 @@
 
     <div class="container">
 
-      <form class="form-signin" action="user_index.php">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Student ID" autofocus>
-        <input type="password" class="form-control" placeholder="Password">
-        <label class="checkbox">
+      <form class="form-signin" action="login_check.php">
+        <h2 class="form-signin-heading">CCU 場地借用系統</h2>
+        <input type="text" class="form-control" placeholder="學號" autofocus>
+        <input type="password" class="form-control" placeholder="密碼" />
+        <!--<label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </label>--!>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
       </form>
 
     </div> <!-- /container -->
