@@ -1,7 +1,10 @@
 bootstrap*
 jquery*
-tmp*
 
 file/
 fonts/
 css/images/*
+
+# test file
+tmp/
+config/
