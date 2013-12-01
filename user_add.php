@@ -27,6 +27,12 @@
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+			$( "#datepicker" ).datepicker();
+			$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
+		});
+	</script>
 </head>
 	
 <body>
@@ -44,67 +50,67 @@
 		</div>
 		<div class="col-md-10" >
 			<br>
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" action="user_add2.php" method="POST">
 				<div class="form-group">
 					<label for="date" class="col-sm-2 control-label">借用日期</label>
 					<div class="col-sm-4">
-						<input type="date" class="form-control" id="date" placeholder="2013-10-10">
+						<input type="text" class="form-control" id="datepicker" placeholder="2013-10-10" name="date">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="time" class="col-sm-2 control-label">借用時間(先採用直接輸入 , 8碼)</label>
 					<div class="col-sm-4">
-						<input type="number" class="form-control" id="time" placeholder="19002100">
+						<input type="number" class="form-control" id="time" placeholder="19002100" name="time">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="" class="col-sm-2 control-label">借用地點</label>
+					<label for="loc" class="col-sm-2 control-label">借用地點</label>
 					<div class="col-sm-4">
-						<select class="form-control" id="loc">
-							<option>大AB1</option>
-							<option>小AB1</option>
-							<option>大CB1</option>
-							<option>小CB1</option>
-							<option>CD棟前進樓梯處(限借桌1張、椅2張)</option>
-							<option>EB1前空地</option>
+						<select class="form-control" id="loc" name="loc">
+							<option value="大AB1">大AB1</option>
+							<option value="小AB1">小AB1</option>
+							<option value="大CB1">大CB1</option>
+							<option value="小CB1">小CB1</option>
+							<option value="CD棟前進樓梯處(限借桌1張、椅2張)">CD棟前進樓梯處(限借桌1張、椅2張)</option>
+							<option value="EB1前空地">EB1前空地</option>
 							<option value="other">其他場地</option>
 						</select>
 					</div>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="newloc" placeholder="地點" style="display:none"/>
+						<input type="text" class="form-control" id="newloc" placeholder="地點" style="display:none" name="loc2"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="club" class="col-sm-2 control-label">申請社團</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="club" placeholder="吃吃社">
+						<input type="text" class="form-control" id="club" placeholder="吃吃社" name="club">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="pm" class="col-sm-2 control-label">申請人</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="pm" placeholder="吃貨">
+						<input type="text" class="form-control" id="pm" placeholder="吃貨" name="pm">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="name" class="col-sm-2 control-label">活動名稱</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="name" placeholder="吃吃期末大會">
+						<input type="text" class="form-control" id="name" placeholder="吃吃期末大會" name="name">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="phone" class="col-sm-2 control-label">連絡電話</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="phone" placeholder="0911111111">
+						<input type="text" class="form-control" id="phone" placeholder="0911111111" name="phone">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="attend" class="col-sm-2 control-label">參加人數</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="attend" placeholder="60">
+						<input type="text" class="form-control" id="attend" placeholder="60" name="attend">
 					</div>
 				</div>
-				<button type="button" class="btn btn-default">
+				<button type="submit" class="btn btn-default" id="nextstep">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
 			<!--
@@ -141,6 +147,10 @@
 			{
 				$("#newloc").css('display','none');
 			}
+		});
+
+		$( "#nextstep" ).submit(function(){
+			return true;
 		});
 	</script>
 </body>
