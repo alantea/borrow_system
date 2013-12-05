@@ -89,22 +89,25 @@
 						<input type="hidden" name="pm" value="<?php echo($_POST['pm']);?>" />
 					</tr>
 					<tr>
-						<th>借用日期</th>
-						<td><?php echo($_POST['date']);?></td>
-						<input type="hidden" name="date" value="<?php echo($_POST['date']);?>" />
+						<th>活動名稱</th>
+						<td><?php echo($_POST['name']);?></td>
+						<input type="hidden" name="name" value="<?php echo($_POST['name']);?>" />
 					</tr>
 					<tr>
-						<th>借用日期</th>
-						<td><?php echo($_POST['date']);?></td>
-						<input type="hidden" name="date" value="<?php echo($_POST['date']);?>" />
+						<th>連絡電話</th>
+						<td><?php echo($_POST['phone']);?></td>
+						<input type="hidden" name="phone" value="<?php echo($_POST['phone']);?>" />
 					</tr>
 					<tr>
-						<th>借用日期</th>
-						<td><?php echo($_POST['date']);?></td>
-						<input type="hidden" name="date" value="<?php echo($_POST['date']);?>" />
+						<th>參加人數</th>
+						<td><?php echo($_POST['attend']) . "人";?></td>
+						<input type="hidden" name="date" value="<?php echo($_POST['attend']);?>" />
 					</tr>
 				</tbody>
 			</table>
+				<button type="submit" class="btn btn-default" id="nextstep">
+					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
+				</button>
 			</form>
 <!--
 				<div class="form-group">
