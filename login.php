@@ -33,10 +33,10 @@
 
     <div class="container">
 
-      <form class="form-signin" action="login_check.php">
+      <form class="form-signin" action="login_check.php" method="POST">
         <h2 class="form-signin-heading">CCU 場地借用系統</h2>
-        <input type="text" class="form-control" placeholder="學號" autofocus>
-        <input type="password" class="form-control" placeholder="密碼" />
+        <input type="text" class="form-control" placeholder="學號" name="id" autofocus>
+        <input type="password" class="form-control" placeholder="密碼" name="pw" />
         <!--<label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>--!>

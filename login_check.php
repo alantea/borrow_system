@@ -1,5 +1,12 @@
 <?php
 	session_start();
-	$_SESSION['id']="apple";
+	if( $_POST['id'] == 'banana' && $_POST['pw'] == 'ok' )
+	{
+		$_SESSION['id']="banana";
+	}
+	else
+	{
+		$_SESSION['id']="apple";
+	}
 	header("Location:user_index.php");
 ?>

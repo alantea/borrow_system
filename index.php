@@ -59,7 +59,7 @@
 				<?php
 					require("config/config.php");
 					$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-					                              FROM dorm_list");
+					                              FROM dorm_list ORDER BY date , time");
 					$stmt->execute();
 
 					$stmt->bind_result($date,$time,$loc,$ad_result);
