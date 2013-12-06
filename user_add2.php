@@ -101,7 +101,7 @@
 					<tr>
 						<th>參加人數</th>
 						<td><?php echo($_POST['attend']) . "人";?></td>
-						<input type="hidden" name="date" value="<?php echo($_POST['attend']);?>" />
+						<input type="hidden" name="attend" value="<?php echo($_POST['attend']);?>" />
 					</tr>
 				</tbody>
 			</table>

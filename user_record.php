@@ -46,6 +46,57 @@
 			</ul>
 		</div>
 		<div class="col-md-10" >
+			<br>
+			<br>
+			<table class="table table-bordered">
+				<tr>
+					<th>日期</th>
+					<th>時段</th>
+					<th>地點</th>
+					<th>社團</th>
+					<th>申請人</th>
+					<th>活動名稱</th>
+					<th>連絡電話</th>
+					<th>參加人數</th>
+					<th>借用時間</th>
+					<th>借用結果</th>
+					<th>借用原因</th>
+				</tr>
+				<?php
+					require("config/config.php");
+					$stmt = $mysqli->prepare("SELECT date,time,loc,club,pm,name,
+					                              phone,attend,bdate,btime,admin_result,
+					                              admin_reason,sid
+					                              FROM dorm_list WHERE sid = ?");
+					
+					if( !($stmt->bind_param( "s" , $_SESSION['id'] )))
+					{
+						echo "Prepare failed (" . $mysqli->errno . ") " . $mysqli->error;
+					}
+					$stmt->execute();
+
+					$stmt->bind_result($date,$time,$loc,$club,$pm,$name,
+									   $phone,$attend,$bdate,$btime,$ad_result,$ad_reason,$sid);
+					
+					while( $stmt->fetch() )
+					{
+						$list = "<tr><td>";
+						$list .= $date . "</td><td>";
+						$list .= $time . "</td><td>";
+						$list .= $loc . "</td><td>";
+						$list .= $club . "</td><td>";
+						$list .= $pm . "</td><td>";
+						$list .= $name . "</td><td>";
+						$list .= $phone . "</td><td>";
+						$list .= $attend . "</td><td>";
+						$list .= $bdate . " " . $btime . "</td><td>";
+						$list .= $ad_result . "</td><td>";
+						$list .= $ad_reason . "</td></tr>";
+						echo $list;
+					}
+					echo ("\n");
+				?>
+			</table>
 		</div>
 	</div><!-- /.container -->
 
