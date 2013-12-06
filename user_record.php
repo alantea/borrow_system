@@ -49,19 +49,22 @@
 			<br>
 			<br>
 			<table class="table table-bordered">
-				<tr>
-					<th>日期</th>
-					<th>時段</th>
-					<th>地點</th>
-					<th>社團</th>
-					<th>申請人</th>
-					<th>活動名稱</th>
-					<th>連絡電話</th>
-					<th>參加人數</th>
-					<th>借用時間</th>
-					<th>借用結果</th>
-					<th>借用原因</th>
-				</tr>
+				<thead>
+					<tr>
+						<th>日期</th>
+						<th>時段</th>
+						<th>地點</th>
+						<th>社團</th>
+						<th>申請人</th>
+						<th>活動名稱</th>
+						<th>連絡電話</th>
+						<th>參加人數</th>
+						<th>借用時間</th>
+						<th>借用結果</th>
+						<th>借用原因</th>
+					</tr>
+				</thead>
+				<tbody>
 				<?php
 					require("config/config.php");
 					$stmt = $mysqli->prepare("SELECT date,time,loc,club,pm,name,
@@ -96,6 +99,7 @@
 					}
 					echo ("\n");
 				?>
+				</tbody>
 			</table>
 		</div>
 	</div><!-- /.container -->
