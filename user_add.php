@@ -26,7 +26,9 @@
 	<!-- Javascript --!>
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.numeric.js"></script> <!-- source --!>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
 			$( "#datepicker" ).datepicker();
@@ -57,10 +59,90 @@
 						<input type="text" class="form-control" id="datepicker" placeholder="2013-10-10" name="date" required>
 					</div>
 				</div>
+				<!--
 				<div class="form-group">
 					<label for="time" class="col-sm-2 control-label">借用時間(先採用直接輸入 , 8碼)</label>
 					<div class="col-sm-4">
 						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
+					</div>
+				</div>
+				--!>
+				<div class="form-group">
+					<label for="time" class="col-sm-2 control-label">借用時間</label>
+					<div class="col-sm-9 form-inline">
+						<div class="form-group col-sm-2">
+							<select class="form-control" name="sh">
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+							</select>
+						</div>
+						<h5 class="form-group col-sm-1">
+							時
+						</h5>
+						<div class="form-group col-sm-2">
+							<select class="form-control" name="sm">
+								<option value="00">00</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option value="40">40</option>
+								<option value="50">50</option>
+							</select>
+						</div>
+						<h5 class="form-group col-sm-1">
+							分-
+						</h5>
+						<div class="form-group col-sm-2">
+							<select class="form-control" name="eh">
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+							</select>
+						</div>
+						<h5 class="form-group col-sm-1">
+							時
+						</h5>
+						<div class="form-group col-sm-2">
+							<select class="form-control" name="em">
+								<option value="00">00</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option value="40">40</option>
+								<option value="50">50</option>
+							</select>
+						</div>
+						<h5 class="form-group col-sm-1">
+							分
+						</h5>
+						<!--
+						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
+						--!>
 					</div>
 				</div>
 				<div class="form-group">
@@ -133,8 +215,6 @@
 			composedDate.getMonth() == m &&
 			composedDate.getFullYear() == y;
 	}
-
-
 		$( "#loc" ).change(function() {
 			if( $( "#loc" ).val() == "other" )
 			{
@@ -201,6 +281,14 @@
 			}
 
 			return true;
+		});
+		$("#phone").numeric();
+		$("#attend").numeric();
+		jQuery('#phone').keyup(function () { 
+			this.value = this.value.replace(/[^0-9]/g,'');
+		});
+		jQuery('#attend').keyup(function () { 
+			this.value = this.value.replace(/[^0-9]/g,'');
 		});
 	</script>
 </body>

@@ -57,14 +57,22 @@
 					<tr>
 						<th>借用時間</th>
 						<td><?php
+							/*
 							$str_time=$_POST['time'];
 							$sh = substr( $str_time , 0 , 2 );
 							$sm = substr( $str_time , 2 , 2 );
 							$eh = substr( $str_time , 4 , 2 );
 							$em = substr( $str_time , 6 , 2 );
 							echo ($sh . ":" . $sm . " - " . $eh . ":" . $em);
+							*/
+							$sh = $_POST['sh'];
+							$sm = $_POST['sm'];
+							$eh = $_POST['eh'];
+							$em = $_POST['em'];
+							echo ($sh . ":" . $sm . " - " . $eh . ":" . $em);
+							$str_time = $sh . $sm . $eh . $em;
 						?></td>
-						<input type="hidden" name="time" value="<?php echo($_POST['time']);?>" />
+						<input type="hidden" name="time" value="<?php echo $str_time;?>" />
 					</tr>
 					<tr>
 						<th>借用地點</th>
