@@ -31,8 +31,8 @@
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			$( "#datepicker" ).datepicker();
-			$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
+			//$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
+			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
 		});
 	</script>
 </head>
@@ -56,7 +56,10 @@
 				<div class="form-group">
 					<label for="date" class="col-sm-2 control-label">借用日期</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="datepicker" placeholder="2013-10-10" name="date" required>
+						<input type="text" class="form-control" id="datepicker" placeholder="<?php
+						date_default_timezone_set("Asia/Taipei");
+						echo date('Y-m-d', time());
+						?>" name="date" required>
 					</div>
 				</div>
 				<!--
