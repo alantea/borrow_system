@@ -74,7 +74,7 @@
 					<label for="time" class="col-sm-2 control-label">借用時間</label>
 					<div class="col-sm-9 form-inline">
 						<div class="form-group col-sm-2">
-							<select class="form-control" name="sh">
+							<select class="form-control" name="sh" id="sh">
 								<option value="08">08</option>
 								<option value="09">09</option>
 								<option value="10">10</option>
@@ -96,7 +96,7 @@
 							時
 						</h5>
 						<div class="form-group col-sm-2">
-							<select class="form-control" name="sm">
+							<select class="form-control" name="sm" id="sm">
 								<option value="00">00</option>
 								<option value="10">10</option>
 								<option value="20">20</option>
@@ -109,7 +109,7 @@
 							分-
 						</h5>
 						<div class="form-group col-sm-2">
-							<select class="form-control" name="eh">
+							<select class="form-control" name="eh" id="eh">
 								<option value="08">08</option>
 								<option value="09">09</option>
 								<option value="10">10</option>
@@ -131,7 +131,7 @@
 							時
 						</h5>
 						<div class="form-group col-sm-2">
-							<select class="form-control" name="em">
+							<select class="form-control" name="em" id="em">
 								<option value="00">00</option>
 								<option value="10">10</option>
 								<option value="20">20</option>
@@ -229,58 +229,66 @@
 			}
 		});
 
-		$( "#nextstepsssss" ).click(function(){
+		$( "#nextstep" ).click(function(){
 			if( $("#datepicker").val() == "" ) // check date
 			{
 				alert("請輸入日期");
-				//return false;
+				return false;
 			}
 			else if( !isValidDate( $("#datepicker").val() ) )
 			{
 				alert("請輸入正確的日期");
-				//return false;
+				return false;
 			}
 			
+			// check time
+			if( ( $("#sh").val() > $("#eh").val() ) ||
+				(( $("#sh").val() == $("#eh").val() ) && ( $("#sm").val() >= $("#em").val() )) )
+			{
+				alert("請輸入正確時間");
+				return false;
+			}
+
 			if( $("#time").val() == "" )
 			{
 				alert("請輸入正確時間");
-				//return false;
+				return false;
 			}
 
 			if( $("#loc").val() == "other" && $("#newloc").val() == "" )
 			{
 				alert("請輸入正確地點");
-				//return false;
+				return false;
 			}
 
 			if( $("#club").val() == "" )
 			{
 				alert("請輸入社團");
-				//return false;
+				return false;
 			}
 			
 			if( $("#pm").val() == "" )
 			{
 				alert("請輸入申請人");
-				//return false;
+				return false;
 			}
 
 			if( $("#name").val() == "" )
 			{
 				alert("請輸入活動名稱");
-				//return false;
+				return false;
 			}
 			
 			if( $("#phone").val() == "" )
 			{
 				alert("請輸入電話");
-				//return false;
+				return false;
 			}
 			
 			if( $("#attend").val() == "" )
 			{
 				alert("請輸入參加人數");
-				//return false;
+				return false;
 			}
 
 			return true;
