@@ -50,9 +50,8 @@
 			<table class="table table-hover" id="TimeTableDiv">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>時間</th>
 						<th>地點</th>
+						<th>時間</th>
 					</tr>
 				</thead>
 				<tbody>
