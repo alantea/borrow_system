@@ -29,7 +29,6 @@
 	for( $i = 1 ;  $stmt->fetch() ; $i++ )
 	{
 		$list = "<tr><td>";
-		//$list .= $i . "</td><td>";
 		$list .= $loc . "</td><td>";
 						
 		$str_time=$time;
@@ -48,7 +47,7 @@
 
 	if( !$borrowed )
 	{
-		echo "<tr><td colspan='3'>本日無借用資料</td></tr>";
+		echo "<tr><td colspan='2'>本日無借用資料</td></tr>";
 	}
 
 	echo ("\n");

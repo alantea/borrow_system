@@ -37,7 +37,7 @@
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
-				<a href="user_add.php" class="list-group-item">新增借用</a>
+				<a href="user_rules.php" class="list-group-item">新增借用</a>
 				<a href="user_record.php" class="list-group-item">借用紀錄</a>
 				<a href="user_index.php" class="list-group-item active">管理介面</a>
 			</ul>

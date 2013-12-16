@@ -14,7 +14,9 @@
 					<li id="search" ><a href="search.php" class="active">條件查詢</a></li>
 					<li id="rules" ><a href="rules.php">借用規則</a></li>
 				</ul>
-				<a href="login.php" class="btn btn-danger pull-right" style="margin-top: 8px;" >Login</a>
+				<ul class="btn-group navbar-right" style="margin-top: 8px;">
+					<a href="login.php" class="btn btn-danger">Login</a>
+				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>

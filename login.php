@@ -29,24 +29,35 @@
     <![endif]-->
   </head>
 
-  <body>
+	<body>
 
-    <div class="container">
+		<div class="container">
 
-      <form class="form-signin" action="login_check.php" method="POST">
-        <h2 class="form-signin-heading">CCU 場地借用系統</h2>
-        <input type="text" class="form-control" placeholder="學號" name="id" autofocus>
-        <input type="password" class="form-control" placeholder="密碼" name="pw" />
+			<form class="form-signin" action="login_check.php" method="POST">
+				<h2 class="form-signin-heading">CCU 場地借用系統</h2>
+				<input type="text" class="form-control" placeholder="學號" name="id" autofocus>
+				<input type="password" class="form-control" placeholder="密碼" name="pw" />
+				<div class="radio">
+					<label class="col-sm-6">
+						<input type="radio" name="iden" value="student" checked>
+						學生
+					</label>
+					<label class="col-sm-6">
+						<input type="radio" name="iden" value="staff">
+						管理員
+					</label>
+				</div>
         <!--<label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>--!>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-      </form>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+			
+			</form>
 
-    </div> <!-- /container -->
+		</div> <!-- /container -->
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+	</body>
 </html>

@@ -40,7 +40,7 @@
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
-				<a href="user_add.php" class="list-group-item">新增借用</a>
+				<a href="user_rules.php" class="list-group-item">新增借用</a>
 				<a href="user_record.php" class="list-group-item active">借用紀錄</a>
 				<a href="user_index.php" class="list-group-item">管理介面</a>
 			</ul>
@@ -85,7 +85,17 @@
 					{
 						$list = "<tr><td>";
 						$list .= $date . "</td><td>";
+						
+						$str_time=$time;
+						$sh = substr( $str_time , 0 , 2 );
+						$sm = substr( $str_time , 2 , 2 );
+						$eh = substr( $str_time , 4 , 2 );
+						$em = substr( $str_time , 6 , 2 );
+						$time = ($sh . ":" . $sm . " - " . $eh . ":" . $em);
+
 						$list .= $time . "</td><td>";
+						
+						
 						$list .= $loc . "</td><td>";
 						$list .= $club . "</td><td>";
 						$list .= $pm . "</td><td>";

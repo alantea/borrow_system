@@ -7,4 +7,6 @@ css/images/*
 
 # test file
 tmp/
+tmp*
+
 config/
