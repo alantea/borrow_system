@@ -31,8 +31,7 @@
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			//$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
-			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
+			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0 });
 		});
 	</script>
 </head>
@@ -52,7 +51,7 @@
 		</div>
 		<div class="col-md-10" >
 			<br>
-			<form class="form-horizontal" role="form" action="user_add2.php" method="POST">
+			<form class="form-horizontal" role="form" action="user_add_spc2.php" method="POST">
 				<div class="form-group">
 					<label for="date" class="col-sm-2 control-label">借用日期</label>
 					<div class="col-sm-4">
@@ -62,14 +61,6 @@
 						?>" name="date" required>
 					</div>
 				</div>
-				<!--
-				<div class="form-group">
-					<label for="time" class="col-sm-2 control-label">借用時間(先採用直接輸入 , 8碼)</label>
-					<div class="col-sm-4">
-						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
-					</div>
-				</div>
-				--!>
 				<div class="form-group">
 					<label for="time" class="col-sm-2 control-label">借用時間</label>
 					<div class="col-sm-9 form-inline">
@@ -158,6 +149,7 @@
 							<option value="小CB1">小CB1</option>
 							<option value="CD棟前進樓梯處(限借桌1張、椅2張)">CD棟前進樓梯處(限借桌1張、椅2張)</option>
 							<option value="EB1前空地">EB1前空地</option>
+							<option value="other">其他場地</option>
 						</select>
 					</div>
 					<div class="col-sm-4">
@@ -217,6 +209,17 @@
 			composedDate.getMonth() == m &&
 			composedDate.getFullYear() == y;
 	}
+		$( "#loc" ).change(function() {
+			if( $( "#loc" ).val() == "other" )
+			{
+				$("#newloc").css('display','block');
+			}
+			else
+			{
+				$("#newloc").css('display','none');
+			}
+		});
+
 		$( "#nextstep" ).click(function(){
 			if( $("#datepicker").val() == "" ) // check date
 			{

@@ -1,13 +1,8 @@
 <?php
 	session_start();
-	if( $_SESSION['id'] == "" )
+	if( $_SESSION['id'] != "SE" )
 	{
-		header("Location: index.php");
-		die();
-	}
-	else if( $_SESSION['id'] == "SE" )
-	{
-		header("Location: admin_index.php");
+		header("Location:login.php");
 		die();
 	}
 ?>
@@ -42,9 +37,10 @@
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
-				<a href="user_rules.php" class="list-group-item">新增借用</a>
-				<a href="user_record.php" class="list-group-item">借用紀錄</a>
-				<a href="user_index.php" class="list-group-item active">管理介面</a>
+				<a href="admin_audit.php" class="list-group-item">審核借用</a>
+				<a href="admin_add.php" class="list-group-item">新增借用</a>
+				<a href="admin_record.php" class="list-group-item">審核紀錄</a>
+				<a href="admin_index.php" class="list-group-item active">管理介面</a>
 			</ul>
 		</div>
 		<div class="col-md-10" >
