@@ -9,4 +9,4 @@ css/images/*
 tmp/
 tmp*
 
-config/
+config/config.php
