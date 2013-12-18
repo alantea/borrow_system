@@ -113,8 +113,29 @@
 									echo '<li id="ThreeHours">借用時間超過3小時，需經生活事務組核准</li>';
 								}
 
-								echo '<li id="ThreeTimes">一週內借用場次達第3場次，請詳述理由後，由宿舍服務中心核准</li>';
+								date_default_timezone_set('Asia/Taipei');
+								$now_weekday = date("w" , strtotime($_POST['date']) );
+
+								$first_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") - $now_weekday , date("Y") ) );
+								$last_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") +( 6 - $now_weekday) , date("Y") ) );
+								
+								require("config/config.php");
+								
+								$stmt = $mysqli->prepare("SELECT date,club FROM dorm_list WHERE club = ? AND date BETWEEN ? AND ?");
+								$stmt->bind_param("sss",$_POST['club'],$first_weekday,$last_weekday);
+								$stmt->execute();
+								$stmt->bind_result($date,$club);
+								$count = 0;
+								for( $count = 0 ; $stmt->fetch() ; $count++ ){}
+
+								if( $count == 2 )
+								{
+									echo '<li id="ThreeTimes">一週內借用場次達第3場次，請詳述理由後，由宿舍服務中心核准</li>';
+								}
+								else if( $count > 2 )
+								{
 								echo '<li id="MoreThreeTimes">一週內借用場次超過第3場次，需經生活事務組核准</li>';
+								}
 							
 								if( $str_loc == $_POST['loc2'] )
 								{

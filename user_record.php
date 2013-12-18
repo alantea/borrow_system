@@ -55,13 +55,14 @@
 						<th>時段</th>
 						<th>地點</th>
 						<th>社團</th>
-						<th>申請人</th>
+<!--					<th>申請人</th>		--!>
 						<th>活動名稱</th>
-						<th>連絡電話</th>
-						<th>參加人數</th>
-						<th>借用時間</th>
+<!--					<th>連絡電話</th>	--!>
+<!--					<th>參加人數</th>	--!>
+<!--					<th>借用時間</th>	--!>
 						<th>借用結果</th>
-						<th>借用原因</th>
+<!--					<th>不借用原因</th>	--!>
+						<th>詳細資料</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -70,7 +71,8 @@
 					$stmt = $mysqli->prepare("SELECT date,time,loc,club,pm,name,
 					                              phone,attend,bdate,btime,admin_result,
 					                              admin_reason,sid
-					                              FROM dorm_list WHERE sid = ?");
+					                              FROM dorm_list WHERE sid = ?
+					                              ORDER BY date");
 					
 					if( !($stmt->bind_param( "s" , $_SESSION['id'] )))
 					{
@@ -98,13 +100,14 @@
 						
 						$list .= $loc . "</td><td>";
 						$list .= $club . "</td><td>";
-						$list .= $pm . "</td><td>";
+						//$list .= $pm . "</td><td>";
 						$list .= $name . "</td><td>";
-						$list .= $phone . "</td><td>";
-						$list .= $attend . "</td><td>";
-						$list .= $bdate . " " . $btime . "</td><td>";
+						//$list .= $phone . "</td><td>";
+						//$list .= $attend . "</td><td>";
+						//$list .= $bdate . " " . $btime . "</td><td>";
 						$list .= $ad_result . "</td><td>";
-						$list .= $ad_reason . "</td></tr>";
+						//$list .= $ad_reason . "</td></tr>";
+						$list .= '<div class="btn btn-default">Detail</div>' . "</td></tr>";
 						echo $list;
 					}
 					echo ("\n");

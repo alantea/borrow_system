@@ -57,9 +57,26 @@
 						<th>申請人</th>
 						<th>連絡電話</th>
 						<th>參加人數</th>
+						<th>審核</th>
 					</tr>
 				</thead>
 				<tbody>
+				<tr>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+			hi~~~~~~~~~~~~~~
+      </div>
+    </div>
+  </div>
+				</tr>
 		
 		<?php
 			require("config/config.php");
@@ -102,7 +119,8 @@
 		$list .= $club . "</td><td>";
 		$list .= $pm . "</td><td>";
 		$list .= $phone . "</td><td>";
-		$list .= $attend . "</td><tr>";
+		$list .= $attend . "</td><td>";
+		$list .= '<div class="btn btn-info">審核</div>' . "</td></tr>";
 		$borrowed = true;
 
 		echo $list;

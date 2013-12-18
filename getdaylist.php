@@ -28,6 +28,8 @@
 				
 	for( $i = 1 ;  $stmt->fetch() ; $i++ )
 	{
+		// Unwrite the admin_result to print
+
 		$list = "<tr><td>";
 		$list .= $loc . "</td><td>";
 						

@@ -5,6 +5,7 @@
 		header("Location: index.php");
 		die();
 	}
+	// can check if it is agree
 ?>
 <!DOCTYPE html>
 <html>
