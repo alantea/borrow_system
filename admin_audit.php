@@ -62,21 +62,6 @@
 				</thead>
 				<tbody>
 				<tr>
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <div class="panel-body">
-			hi~~~~~~~~~~~~~~
-      </div>
-    </div>
-  </div>
-				</tr>
 		
 		<?php
 			require("config/config.php");
@@ -95,7 +80,7 @@
 				
 	for( $i = 1 ;  $stmt->fetch() ; $i++ )
 	{
-		$list = "<tr><td>";
+		$list = '<tr class="panel-heading panel-title"><td>';
 		$list .= $date . "</td><td>";
 						
 		$str_time=$time;
@@ -120,7 +105,49 @@
 		$list .= $pm . "</td><td>";
 		$list .= $phone . "</td><td>";
 		$list .= $attend . "</td><td>";
-		$list .= '<div class="btn btn-info">審核</div>' . "</td></tr>";
+
+		$list .= '<button id="check'. $i .'" data-toggle="collapse" class="btn btn-info" data-target="#collatd' . $i . '">審核</button>' .'</td></tr>';
+		
+		$list .= '<tr ><td id="collatd' . $i . '" colspan=\'9\' class="collapse">';
+			
+		$list .= '
+				<div class="form-group">
+					<label for="aname" class="col-sm-2 control-label">承辦人</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="aname" placeholder="某" name="aname" required>
+					</div>
+				</div><br><br>
+				<div class="form-group">
+					<label for="aresu" class="col-sm-2 control-label">審核結果</label>
+					<div class="col-sm-4">
+						<div class="radio col-sm-6">
+							<label>
+							    <input type="radio" name="aresu" id="aresu1" value="permit" checked>
+							    通過
+							</label>
+						</div>
+						<div class="radio col-sm-6">
+							<label>
+							    <input type="radio" name="aresu" id="aresu2" value="deny">
+							    不通過
+							</label>
+						</div>
+					</div>
+				</div><br><br>
+				<div class="form-group">
+					<label for="ason" class="col-sm-2 control-label">未通過原因</label>
+					<div class="col-sm-4">';
+					//	<input type="text" class="form-control" id="ason" placeholder="某某原因" name="ason">
+			$list .= '	<textarea class="form-control" rows="3" id="ason" placeholder="某某原因" name="ason"></textarea>
+					</div>
+				</div>
+				<div class="col-sm-1">
+					<button class="btn btn-primary">送出</button>
+				</div>
+				';
+
+		$list .= '</td></tr>';
+
 		$borrowed = true;
 
 		echo $list;
@@ -142,5 +169,22 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+		$("[id^='check']").click(function(event){
+			var num = (event.target.id).substr(5,(event.target.id).length);	// get the sender id
+			var desid = "#collatd" + num;
+			var now = $( desid ).css('display');
+			if( now == "block" )
+			{
+				//$( desid ).css("display","none");
+				$( desid ).css("height","0px");
+			}
+			else
+			{
+				//$( desid ).css("display","block");
+				//$( desid ).css("height","auto");
+			}
+		});
+    </script>
 </body>
 </html>
