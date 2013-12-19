@@ -176,7 +176,7 @@
 			if( now == "block" )
 			{
 				//$( desid ).css("display","none");
-				$( desid ).css("height","0px");
+				//$( desid ).css("height","0px");
 			}
 			else
 			{
@@ -198,15 +198,36 @@
 			var resuval = $( $('[name="aresu'  + id + '"]') ).val();
 			var sonval = $( "#ason" + id ).val();
 
+			if( nameval == "" || resuval == "" )
+			{
+				alert("請確認資料輸入完整");
+				return false;
+			}
+			else if( nameval == "" || ( resuval == "deny" && sonval == "" ) )
+			{
+				alert("請確認資料輸入完整");
+				return false;
+			}
+
 			$.ajax({
 				type: "POST",
 				url: "admin_check_result.php",
 				data: { mid: id , name: nameval , ru : resuval , rs: sonval }
 			})
 			.done(function( msg ) {
-				if( msg = "1" )
+				if( msg == "1" )
 				{
-					alert("ok");
+					$( "#check" + id ).trigger( "click" );	// call click event
+					$( "#check" + id ).attr("disabled","disabled");
+					$( "#check" + id ).attr("class","btn btn-success");
+					$( "#check" + id ).text( "更新成功!!" );
+				}
+				else
+				{
+	//				$( "#check" + id ).attr("disabled","disabled");
+					$( "#check" + id ).attr("class","btn btn-danger");
+					$( "#check" + id ).text( "更新失敗!!" );
+					alert( "Error : " + msg );
 				}
 			});
 		}
