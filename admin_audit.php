@@ -106,15 +106,15 @@
 		$list .= $phone . "</td><td>";
 		$list .= $attend . "</td><td>";
 
-		$list .= '<button id="check'. $i .'" data-toggle="collapse" class="btn btn-info" data-target="#collatd' . $i . '">審核</button>' .'</td></tr>';
+		$list .= '<button id="check'. $id .'" data-toggle="collapse" class="btn btn-info" data-target="#collatd' . $id . '">審核</button>' .'</td></tr>';
 		
-		$list .= '<tr ><td id="collatd' . $i . '" colspan=\'9\' class="collapse">';
+		$list .= '<tr ><td id="collatd' . $id . '" colspan=\'9\' class="collapse">';
 			
 		$list .= '
 				<div class="form-group">
 					<label for="aname" class="col-sm-2 control-label">承辦人</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="aname" placeholder="某" name="aname" required>
+						<input type="text" class="form-control" id="aname' . $id . '" placeholder="某" name="aname' . $id . '" required>
 					</div>
 				</div><br><br>
 				<div class="form-group">
@@ -122,13 +122,13 @@
 					<div class="col-sm-4">
 						<div class="radio col-sm-6">
 							<label>
-							    <input type="radio" name="aresu" id="aresu1" value="permit" checked>
+							    <input type="radio" name="aresu' . $id . '" id="aresu_agree" value="permit" checked>
 							    通過
 							</label>
 						</div>
 						<div class="radio col-sm-6">
 							<label>
-							    <input type="radio" name="aresu" id="aresu2" value="deny">
+							    <input type="radio" name="aresu' . $id . '" id="aresu_deny" value="deny">
 							    不通過
 							</label>
 						</div>
@@ -136,13 +136,12 @@
 				</div><br><br>
 				<div class="form-group">
 					<label for="ason" class="col-sm-2 control-label">未通過原因</label>
-					<div class="col-sm-4">';
-					//	<input type="text" class="form-control" id="ason" placeholder="某某原因" name="ason">
-			$list .= '	<textarea class="form-control" rows="3" id="ason" placeholder="某某原因" name="ason"></textarea>
+					<div class="col-sm-4">
+						<textarea class="form-control" rows="3" id="ason' . $id . '" placeholder="某某原因" name="ason"></textarea>
 					</div>
 				</div>
 				<div class="col-sm-1">
-					<button class="btn btn-primary">送出</button>
+					<button class="btn btn-primary" id="sub' . $id . '">送出</button>
 				</div>
 				';
 
@@ -185,6 +184,32 @@
 				//$( desid ).css("height","auto");
 			}
 		});
+
+		$("[id^='sub']").click(function(event){
+			var num = (event.target.id).substr(3,(event.target.id).length);	// get the sender id
+			submit_result(num);
+		});
+
+		function submit_result(id)
+		{
+			var nameval = $( "#aname" + id ).val();
+
+			// permit & deny
+			var resuval = $( $('[name="aresu'  + id + '"]') ).val();
+			var sonval = $( "#ason" + id ).val();
+
+			$.ajax({
+				type: "POST",
+				url: "admin_check_result.php",
+				data: { mid: id , name: nameval , ru : resuval , rs: sonval }
+			})
+			.done(function( msg ) {
+				if( msg = "1" )
+				{
+					alert("ok");
+				}
+			});
+		}
     </script>
 </body>
 </html>
