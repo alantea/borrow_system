@@ -52,7 +52,7 @@
 						<th>日期</th>
 						<th>時間</th>
 						<th>地點</th>
-						<th>活動</th>
+<!--					<th>活動</th>		--!>
 						<th>社團</th>
 						<th>申請人</th>
 						<th>連絡電話</th>
@@ -98,7 +98,7 @@
 			$list .= "CD棟前進樓梯處</td><td>";
 		}
 		
-		$list .= $name . "</td><td>";
+//		$list .= $name . "</td><td>";
 		$list .= $club . "</td><td>";
 		$list .= $pm . "</td><td>";
 		$list .= $phone . "</td><td>";

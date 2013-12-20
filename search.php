@@ -46,11 +46,49 @@
 
 	<!-- content --!>
 	<div class="container">
-		條件查詢
+		<br>
+		<div id="search_list" class="col-md-3 well">
+			<legend>日期區間</legend>
+			<label for="datepicker1">從</label>
+			<input type="text" class="form-control" id="datepicker1" placeholder="開始時間" />
+			<label for="datepicker2">到</label>
+			<input type="text" class="form-control" id="datepicker2" placeholder="結束時間" />
+		
+			<legend>地點</legend>
+			<div class="checkbox">
+				<input type="checkbox" value="bab1">大AB1
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" value="sab1">小AB1
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" value="bcb1">大CB1
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" value="scb1">小CB1
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" value="cd">CD棟前近樓梯處
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" value="eb1">EB1前空地
+			</div>
+		
+		</div>
+		<div id="search_table" class="col-md-6">
+		
+		</div>
 	</div><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+		$(function() {
+			$( "#datepicker1" ).datepicker( { dateFormat : "yy-mm-dd" });
+			$( "#datepicker2" ).datepicker( { dateFormat : "yy-mm-dd" });
+		});
+
+    </script>
 </body>
 </html>

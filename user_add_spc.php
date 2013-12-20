@@ -147,7 +147,7 @@
 							<option value="小AB1">小AB1</option>
 							<option value="大CB1">大CB1</option>
 							<option value="小CB1">小CB1</option>
-							<option value="CD棟前進樓梯處(限借桌1張、椅2張)">CD棟前進樓梯處(限借桌1張、椅2張)</option>
+							<option value="CD棟前近樓梯處(限借桌1張、椅2張)">CD棟前近樓梯處(限借桌1張、椅2張)</option>
 							<option value="EB1前空地">EB1前空地</option>
 							<option value="other">其他場地</option>
 						</select>

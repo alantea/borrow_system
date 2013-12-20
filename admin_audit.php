@@ -195,7 +195,8 @@
 			var nameval = $( "#aname" + id ).val();
 
 			// permit & deny
-			var resuval = $( $('[name="aresu'  + id + '"]') ).val();
+			var resuval = $( "input[name=aresu"  + id + "]:checked" ).val();
+
 			var sonval = $( "#ason" + id ).val();
 
 			if( nameval == "" || resuval == "" )
