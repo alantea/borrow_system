@@ -59,13 +59,6 @@
 			</table>
 		</div>
 	</div><!-- /.container -->
-	<div id="footer">
-			<div class="container">
-						<ul class="inline">
-					          <li><a href="http://www.ccu.edu.tw">中正大學首頁</a></li>
-						</ul>
-			</div>
-	</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
