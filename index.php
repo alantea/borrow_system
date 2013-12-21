@@ -59,7 +59,15 @@
 			</table>
 		</div>
 	</div><!-- /.container -->
-
+	<div id="footer">
+			<div class="container">
+					<p class="text-center">國立中正大學電子計算機中心 CCU Computer Center</p>
+							<ul class="inline">
+										<li><a href="http://www.ccu.edu.tw">中正大學首頁</a></li>
+													<li><a href="http://center.ccu.edu.tw">中心首頁</a></li>
+															</ul>
+																	</div>
+																		</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
