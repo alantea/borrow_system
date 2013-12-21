@@ -1,0 +1,12 @@
+<?php
+	$server = "Server_IP";
+	$server_id = "Database_username";
+	$server_pwd = "Database_password";
+	$server_name = "Database_name";
+
+	$mysqli = new mysqli( $server , $server_id, $server_pwd , $server_name);
+	
+	if ($mysqli->connect_errno) {
+		    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+	}
+?>

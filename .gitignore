@@ -1,5 +1,5 @@
 bootstrap*
-jquery*
+jquery-*
 
 file/
 fonts/
@@ -7,4 +7,6 @@ css/images/*
 
 # test file
 tmp/
-config/
+tmp*
+
+config/config.php

@@ -57,14 +57,6 @@
 					<tr>
 						<th>借用時間</th>
 						<td><?php
-							/*
-							$str_time=$_POST['time'];
-							$sh = substr( $str_time , 0 , 2 );
-							$sm = substr( $str_time , 2 , 2 );
-							$eh = substr( $str_time , 4 , 2 );
-							$em = substr( $str_time , 6 , 2 );
-							echo ($sh . ":" . $sm . " - " . $eh . ":" . $em);
-							*/
 							$sh = $_POST['sh'];
 							$sm = $_POST['sm'];
 							$eh = $_POST['eh'];
@@ -77,12 +69,12 @@
 					<tr>
 						<th>借用地點</th>
 						<td><?php
-							$str_date=$_POST['loc'];
-							if( $str_date=="other" )
+							$str_loc=$_POST['loc'];
+							if( $str_loc=="other" )
 							{
-								$str_date= $_POST['loc2'];
+								$str_loc= $_POST['loc2'];
 							}
-							echo ($str_date);
+							echo ($str_loc);
 							?></td>
 						<input type="hidden" name="loc" value="<?php echo($str_date);?>" />
 					</tr>
@@ -111,41 +103,53 @@
 						<td><?php echo($_POST['attend']) . "人";?></td>
 						<input type="hidden" name="attend" value="<?php echo($_POST['attend']);?>" />
 					</tr>
+					<tr>
+						<td colspan="2">
+						<ul>
+							<li id="TenDays" style="display:none">借用時間非10天內，需經生活事務組核准</li>
+							<?php
+								if( ($eh - $sh > 3) || ($eh - $sh == 3 && $em - $sm > 0 ) )
+								{
+									echo '<li id="ThreeHours">借用時間超過3小時，需經生活事務組核准</li>';
+								}
+
+								date_default_timezone_set('Asia/Taipei');
+								$now_weekday = date("w" , strtotime($_POST['date']) );
+
+								$first_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") - $now_weekday , date("Y") ) );
+								$last_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") +( 6 - $now_weekday) , date("Y") ) );
+								
+								require("config/config.php");
+								
+								$stmt = $mysqli->prepare("SELECT date,club FROM dorm_list WHERE club = ? AND date BETWEEN ? AND ?");
+								$stmt->bind_param("sss",$_POST['club'],$first_weekday,$last_weekday);
+								$stmt->execute();
+								$stmt->bind_result($date,$club);
+								$count = 0;
+								for( $count = 0 ; $stmt->fetch() ; $count++ ){}
+
+								if( $count == 2 )
+								{
+									echo '<li id="ThreeTimes">一週內借用場次達第3場次，請詳述理由後，由宿舍服務中心核准</li>';
+								}
+								else if( $count > 2 )
+								{
+								echo '<li id="MoreThreeTimes">一週內借用場次超過第3場次，需經生活事務組核准</li>';
+								}
+							
+								if( $str_loc == $_POST['loc2'] )
+								{
+									echo '<li id="OtherLoc">申請場地須經生活事務組核章</li>';
+								}
+							?>
+						</ul>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 				<button type="submit" class="btn btn-default" id="nextstep">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
-			</form>
-<!--
-				<div class="form-group">
-					<label for="pm" class="col-sm-2 control-label">申請人</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="pm" placeholder="吃貨">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="name" class="col-sm-2 control-label">活動名稱</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="name" placeholder="吃吃期末大會">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="phone" class="col-sm-2 control-label">連絡電話</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="phone" placeholder="0911111111">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="attend" class="col-sm-2 control-label">參加人數</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="attend" placeholder="60">
-					</div>
-				</div>
-				<button type="button" class="btn btn-default" id="nextstep">
-					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
-				</button>
-				--!>
 			</form>
 		</div>
 	</div><!-- /.container -->
@@ -153,5 +157,28 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+
+		jQuery(document).ready(function(){
+			showmessage();
+		});
+
+		function showmessage()
+		{
+			var today = new Date();
+			var sel = new Date(<?php echo '"' . $_POST['date'] . '"';?>);
+
+			if( (sel.getTime() - today.getTime())/86400000 > 10 )
+			{
+				$("#TenDays").css('display','');
+			}
+/*
+							<li id="ThreeHours" style="display:none">借用時間超過3小時，需經生活事務組核准</li>
+							<li id="ThreeTimes" style="display:none">一週內借用場次達第3場次，請詳述理由後，由宿舍服務中心核准</li>
+							<li id="MoreThreeTimes" style="display:none">一週內借用場次超過第3場次，需經生活事務組核准</li>
+							<li id="OtherLoc" style="display:none">申請場地須經生活事務組核章</li>
+*/
+		}
+    </script>
 </body>
 </html>
