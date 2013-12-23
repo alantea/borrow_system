@@ -65,7 +65,7 @@
 			require("config/config.php");
 	
 			$stmt = $mysqli->prepare("SELECT id,date,time,loc,club,pm,name,phone,attend,bdate,btime,admin_result
-	                          FROM dorm_list WHERE admin_result = ? ");
+	                          FROM dorm_list WHERE admin_result = ? ORDER By date");
 	
 	$res = "Waiting";
 	$stmt->bind_param("s", $res);
@@ -80,7 +80,7 @@
 	{
 		$list = "<tr><td>";
 		$list .= $date . "</td><td>";
-						
+					
 		$str_time=$time;
 		$sh = substr( $str_time , 0 , 2 );
 		$sm = substr( $str_time , 2 , 2 );
