@@ -113,39 +113,22 @@
 					</tr>
 				</tbody>
 			</table>
+			<table border = 1 >
+			<tbody>
+			<tr>
+			<td>
+			<center><h3>同意書</h3></center>
+			本人<?php echo($_POST['pm']);?> 承辦 <?php echo($_POST['club']);?> 於 <?php echo($_POST['date']);?>
+			 <?php echo($_POST['sh']);?>時起至<?php echo($_POST['eh']);?>時止,舉辦<?php echo($_POST['name']);?>活動,申請借用學生宿舍學士班
+			 基於宿舍安全及環境衛生考量,同意配合禁止舉辦炊煮形式活動,如有違反,願接受校規處分
+			     此致  學務處生活事務組
+			</td>
+			</tr>
+			</tbody>
+			</table>
 				<button type="submit" class="btn btn-default" id="nextstep">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
-			</form>
-<!--
-				<div class="form-group">
-					<label for="pm" class="col-sm-2 control-label">申請人</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="pm" placeholder="吃貨">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="name" class="col-sm-2 control-label">活動名稱</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="name" placeholder="吃吃期末大會">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="phone" class="col-sm-2 control-label">連絡電話</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="phone" placeholder="0911111111">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="attend" class="col-sm-2 control-label">參加人數</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="attend" placeholder="60">
-					</div>
-				</div>
-				<button type="button" class="btn btn-default" id="nextstep">
-					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
-				</button>
-				--!>
 			</form>
 		</div>
 	</div><!-- /.container -->
@@ -154,4 +137,4 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 </body>
-</html>
+i</html>
