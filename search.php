@@ -24,6 +24,11 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
+		$(document).ready(init);
+
+		function init(){
+			$("#search").addClass('active');
+		}
 	</script>
 </head>
 	
