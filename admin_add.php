@@ -197,7 +197,7 @@
 				<div class="form-group">
 					<label for="areason" class="col-sm-2 control-label">通過原因</label>
 					<div class="col-sm-4">
-						<textarea class="form-control" id="reason" placeholder="可不填" name="reason" rows="3"></textarea>
+						<textarea class="form-control" id="areason" placeholder="可不填" name="areason" rows="3"></textarea>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-default" id="nextstep">

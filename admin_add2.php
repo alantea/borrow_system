@@ -48,7 +48,7 @@
 			<br>
 			
 			<h3> 確認資料 </h3>
-			<form role="form" action="add_list.php" method="POST">
+			<form role="form" action="admin_add_list.php" method="POST">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
