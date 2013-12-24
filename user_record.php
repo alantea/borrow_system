@@ -22,14 +22,13 @@
 	<!-- Custom styles for this template -->
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
+	<link href="css/theme.bootstrap.css" rel="stylesheet" />
 
 	<!-- Javascript --!>
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script>
-
-	</script>
+	<script src="js/jquery.tablesorter.bootstrap.js"></script>
 </head>
 	
 <body>
@@ -48,7 +47,7 @@
 		<div class="col-md-10" >
 			<br>
 			<br>
-			<table class="table table-bordered">
+			<table class="table table-bordered tablesorter" id="user_table">
 				<thead>
 					<tr>
 						<th>日期</th>
@@ -180,5 +179,14 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.tablesorter.min.js"></script>
+	<script src="js/jquery.tablesorter.widgets.min.js"></script>
+	<script>
+	$(document).ready(function() 
+	{ 
+		$("#user_table").tablesorter(); 
+	} 
+	); 
+	</script>
 </body>
 </html>
