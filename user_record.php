@@ -61,7 +61,7 @@
 <!--					<th>借用時間</th>	--!>
 						<th>借用結果</th>
 <!--					<th>不借用原因</th>	--!>
-						<th>詳細資料</th>
+						<th data-sorter="false">詳細資料</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -181,12 +181,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery.tablesorter.min.js"></script>
 	<script src="js/jquery.tablesorter.widgets.min.js"></script>
-	<script>
-	$(document).ready(function() 
-	{ 
-		$("#user_table").tablesorter(); 
-	} 
-	); 
-	</script>
 </body>
 </html>

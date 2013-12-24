@@ -38,8 +38,9 @@
 		<div class="col-md-2 list" >
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item">審核借用</a>
+				<a href="admin_audit_record.php" class="list-group-item active">審核紀錄</a>
 				<a href="admin_add.php" class="list-group-item">新增借用</a>
-				<a href="admin_record.php" class="list-group-item active">審核紀錄</a>
+				<a href="admin_record.php" class="list-group-item">借用紀錄</a>
 				<a href="admin_index.php" class="list-group-item">管理介面</a>
 			</ul>
 		</div>
@@ -65,7 +66,7 @@
 			require("config/config.php");
 	
 			$stmt = $mysqli->prepare("SELECT id,date,time,loc,club,pm,name,phone,attend,bdate,btime,admin_result
-	                          FROM dorm_list WHERE admin_result = ? ORDER By date");
+	                          FROM dorm_list WHERE admin_result != ? ORDER By date");
 	
 	$res = "Waiting";
 	$stmt->bind_param("s", $res);

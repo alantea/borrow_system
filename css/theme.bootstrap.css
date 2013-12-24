@@ -69,7 +69,7 @@
 /* filter widget */
 .tablesorter-bootstrap .tablesorter-filter-row .tablesorter-filter {
 	width: 98%;
-	height: auto;
+	height: 25px;
 	margin: 0 auto;
 	padding: 4px 6px;
 	color: #333;
