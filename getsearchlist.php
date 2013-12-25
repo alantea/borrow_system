@@ -37,19 +37,20 @@ function retrans( $x )
 {
 	switch($x)
 	{
-		case '大AB1';
+		case '大AB1':
 			return 1;
-		case '小AB1';
+		case '小AB1':
 			return 2;
-		case '大CB1';
+		case '大CB1':
 			return 3;
-		case '小CB1';
+		case '小CB1':
 			return 4;
-		case 'CD棟前近樓梯處';
+		case 'CD棟前近樓梯處(限借桌1張、椅2張)':
+		case 'CD棟前近樓梯處':
 			return 5;
-		case 'EB1前空地';
+		case 'EB1前空地':
 			return 6;
-		case 'other';
+		case 'other':
 			return 7;
 		default:
 			return 7;
@@ -101,7 +102,14 @@ function retrans( $x )
 		$time = ($sh . ":" . $sm . " - " . $eh . ":" . $em);
 					
 		$list .= $time . "</td><td>";
-		$list .= $loc . "</td></tr>";
+		if( strpos($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') === false )
+		{
+			$list .= $loc . "</td></tr>";
+		}
+		else
+		{
+			$list .= "CD棟前近樓梯處</td></tr>";
+		}
 
 		$borrowed = true;
 

@@ -90,13 +90,13 @@
 		$time = ($sh . ":" . $sm . " - " . $eh . ":" . $em);
 		$list .= $time . "</td><td>";
 
-		if( strpos($loc,'CD棟前進樓梯處(限借桌1張、椅2張)') === false )
+		if( strpos($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') === false )
 		{
 			$list .= $loc . "</td><td>";
 		}
 		else
 		{
-			$list .= "CD棟前進樓梯處</td><td>";
+			$list .= "CD棟前近樓梯處</td><td>";
 		}
 		
 //		$list .= $name . "</td><td>";
