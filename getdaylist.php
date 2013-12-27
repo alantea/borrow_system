@@ -17,7 +17,7 @@
 	}
 	
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date = ? ORDER BY loc");
+	                          FROM dorm_list WHERE date = ? ORDER BY time , loc");
 	$stmt->bind_param("s", $date);
 
 	$stmt->execute();
@@ -31,7 +31,14 @@
 		// Unwrite the admin_result to print
 
 		$list = "<tr><td>";
-		$list .= $loc . "</td><td>";
+		if( strpos($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') === false )
+		{
+			$list .= $loc . "</td><td>";
+		}
+		else
+		{
+			$list .= "CD棟前近樓梯處</td><td>";
+		}
 						
 		$str_time=$time;
 		$sh = substr( $str_time , 0 , 2 );

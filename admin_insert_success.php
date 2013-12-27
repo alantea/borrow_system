@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> user index </title>
+	<title> Borrow Success </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,19 +32,20 @@
 <body>
 
 	<?php include("user_navbar"); ?>
-
+	
 	<!-- content --!>
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item">審核借用</a>
 				<a href="admin_audit_record.php" class="list-group-item">審核紀錄</a>
-				<a href="admin_add.php" class="list-group-item">新增借用</a>
+				<a href="admin_add.php" class="list-group-item active">新增借用</a>
 				<a href="admin_record.php" class="list-group-item">借用紀錄</a>
-				<a href="admin_index.php" class="list-group-item active">管理介面</a>
+				<a href="admin_index.php" class="list-group-item">管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" >
+		<div class="col-md-10" style="padding-top: 30px">
+			<h2> 新增成功 </h2>
 		</div>
 	</div><!-- /.container -->
 

@@ -21,9 +21,6 @@
 		echo ("0");
 	}
 
-
-
-
 	// $_POST['name']		$_POST['ru']		$_POST['rs']  $_POST['id']
 
 ?>
