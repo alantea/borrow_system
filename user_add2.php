@@ -77,14 +77,14 @@
 					<tr>
 						<th>借用地點</th>
 						<td><?php
-							$str_date=$_POST['loc'];
-							if( $str_date=="other" )
+							$str_loc=$_POST['loc'];
+							if( $str_loc=="other" )
 							{
-								$str_date= $_POST['loc2'];
+								$str_loc= $_POST['loc2'];
 							}
-							echo ($str_date);
+							echo ($str_loc);
 							?></td>
-						<input type="hidden" name="loc" value="<?php echo($str_date);?>" />
+						<input type="hidden" name="loc" value="<?php echo($str_loc);?>" />
 					</tr>
 					<tr>
 						<th>申請社團</th>
@@ -113,15 +113,39 @@
 					</tr>
 				</tbody>
 			</table>
-			<table border = 1 >
+			<table class = "table1">
 			<tbody>
 			<tr>
 			<td>
-			<center><h3>同意書</h3></center>
-			本人<?php echo($_POST['pm']);?> 承辦 <?php echo($_POST['club']);?> 於 <?php echo($_POST['date']);?>
-			 <?php echo($_POST['sh']);?>時起至<?php echo($_POST['eh']);?>時止,舉辦<?php echo($_POST['name']);?>活動,申請借用學生宿舍學士班
-			 基於宿舍安全及環境衛生考量,同意配合禁止舉辦炊煮形式活動,如有違反,願接受校規處分
-			     此致  學務處生活事務組
+			<center><h2><b>同意書</b></h2></center>
+			<p class = "ps">
+			本人<span style="display: inline-block;width:180px;text-align:center;font-weight:bolder"><?php echo($_POST['pm']);?></span>
+			承辦<span style="display: inline-block;width:250px;text-align:center;font-weight:bolder"><?php echo($_POST['club']);?></span>(社團名稱)於
+			<span style="display: inline-block;width:55px;text-align:center;font-weight:bolder"><?php 
+			$str_date = $_POST['date'];
+			$datearray = explode("-",$str_date);
+			$chyear = (int)$datearray[0] - 1911;
+			echo($chyear);
+			?></span>
+			年<span style="display: inline-block;width:55px;text-align:center;font-weight:bolder"><?php echo($datearray[1]);?></span>
+			月<span style="display: inline-block;width:55px;text-align:center;font-weight:bolder"><?php echo($datearray[2]);?></span>
+			日<br><span style="display: inline-block;width:55px;text-align:center;font-weight:bolder"><?php echo($_POST['sh']);?></span>
+			時起至<span style="display: inline-block;width:55px;text-align:center;font-weight:bolder"><?php echo($_POST['eh']);?></span>
+			時止,舉辦<span style="display: inline-block;width:270px;text-align:center;font-weight:bolder"><?php echo($_POST['name']);?></span>
+			活動,申請借用學生宿舍學士班<span style="display: inline-block;width:250px;text-align:center;font-weight:bolder"><?php echo($_POST['loc']);?></span>
+			(場地名稱),基於宿舍安全及環境衛生考量,同意配合禁止舉辦炊煮形式活動,如有違反,願接受校規處分<br>
+			此致  學務處生活事務組</p>
+			<p class = "pr">
+			立同意書人:<span style="display: inline-block;width:150px;text-align:right;font-weight:bolder"><?php echo($_POST['pm']);?></span><br>
+			系級:<span style="display: inline-block;width:150px;text-align:right;font-weight:bolder"><?php echo($_POST['dep']);?></span><br>
+			學號:<span style="display: inline-block;width:150px;text-align:right;font-weight:bolder"><?php echo($_POST['schid']);?></span><br></p>
+			<p class = "pd">
+			中華民國 <span style="display: inline-block;width:100px;text-align:center"><?php 
+			$nowyear = date("Y") - 1911;
+			echo date($nowyear);?></span>年
+			<span style="display: inline-block;width:100px;text-align:center"><?php echo date("m");?></span>月
+			<span style="display: inline-block;width:100px;text-align:center"><?php echo date("d");?></span>日
+			</p>
 			</td>
 			</tr>
 			</tbody>
