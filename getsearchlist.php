@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover tablesorter">
 	<thead>
 		<tr>
 			<th>日期</th>
@@ -74,7 +74,7 @@ function retrans( $x )
 	require("config/config.php");
 	
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date BETWEEN ? AND ? ORDER BY loc");
+	                          FROM dorm_list WHERE date BETWEEN ? AND ? ORDER BY date ,time");
 	$stmt->bind_param("ss", $_POST['stime'] , $_POST['etime'] );
 
 	$stmt->execute();
