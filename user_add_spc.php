@@ -169,6 +169,18 @@
 					</div>
 				</div>
 				<div class="form-group">
+				    <label for="schid" class="col-sm-2 control-label">申請人學號</label> 
+				    <div class="col-sm-4">
+	                    <input type="text" class="form-control" id="schid" placeholder="400000000" name="schid" required> 
+	                </div>
+			    </div>             
+			    <div class="form-group"> 
+			        <label for="dep" class="col-sm-2 control-label">申請人系級</label>
+			        <div class="col-sm-4">
+			            <input type="text" class="form-control" id="dep" placeholder="資工三" name="dep" required>
+			        </div>
+			    </div>
+				<div class="form-group">
 					<label for="name" class="col-sm-2 control-label">活動名稱</label>
 					<div class="col-sm-4">
 						<input type="text" class="form-control" id="name" placeholder="吃吃期末大會" name="name" required>
@@ -264,6 +276,18 @@
 				return false;
 			}
 
+			if( $("#schid").val() == "" )
+			{
+				alert("請輸入申請人學號");
+				return false;
+			}
+
+			if( $("#dep").val() == "")
+			{
+				alert("請輸入申請人系級");
+				return false;
+			}
+
 			if( $("#name").val() == "" )
 			{
 				alert("請輸入活動名稱");
@@ -284,8 +308,12 @@
 
 			return true;
 		});
+		$("#schid").numeric();
 		$("#phone").numeric();
 		$("#attend").numeric();
+		jQuery('#schid').keyup(function () {
+		    this.value = this.value.replace(/[^0-9]/g,'');
+		});
 		jQuery('#phone').keyup(function () { 
 			this.value = this.value.replace(/[^0-9]/g,'');
 		});

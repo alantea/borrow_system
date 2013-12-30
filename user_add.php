@@ -274,6 +274,18 @@
 				return false;
 			}
 
+			if( $("#schid").val() == "")
+			{
+				alert("請輸入申請人學號");
+				return false;
+			}
+
+			if( $("#dep").val() == "")
+			{
+				alert("請輸入申請人系級");
+				return false;
+			}
+
 			if( $("#name").val() == "" )
 			{
 				alert("請輸入活動名稱");
