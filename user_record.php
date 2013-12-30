@@ -23,6 +23,17 @@
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
 	<link href="css/theme.bootstrap.css" rel="stylesheet" />
+	<style>
+		.permit{
+			color: green;
+		}
+		.deny{
+			color: red;
+		}
+		.wait{
+			color: #0000CC;
+		}
+	</style>
 
 	<!-- Javascript --!>
 	<script src="js/jquery-1.10.2.min.js"></script>
@@ -100,11 +111,24 @@
 						$list .= $loc . "</td><td>";
 						$list .= $club . "</td><td>";
 						//$list .= $pm . "</td><td>";
-						$list .= $name . "</td><td>";
+						$list .= $name . "</td>";
 						//$list .= $phone . "</td><td>";
 						//$list .= $attend . "</td><td>";
 						//$list .= $bdate . " " . $btime . "</td><td>";
-						$list .= $ad_result . "</td><td>";
+						$list .= '<td class="' . $ad_result . '">';
+						if( $ad_result == 'wait' )
+						{
+							$list .= '處理中';
+						}
+						else if( $ad_result == 'permit' )
+						{
+							$list .= '通過';
+						}
+						else if( $ad_result == 'deny' )
+						{
+							$list .= '不通過';
+						}
+						$list .= "</td><td>";
 						//$list .= $ad_reason . "</td></tr>";
 						$list .= '<div class="btn btn-default" data-toggle="modal" 
 									data-target="#myModal' . $i . '">Detail</div>' .
@@ -154,7 +178,21 @@
 			</div>
 			<div class="row">
 				<label for="date" class="col-sm-3">借用結果</label>
-				<div class="col-sm-5">' . $ad_result . '</div>
+				<div class="col-sm-5">';
+				if( $ad_result == 'wait' )
+				{
+					$list .= '處理中';
+				}
+				else if( $ad_result == 'permit' )
+				{
+					$list .= '通過';
+				}
+				else if( $ad_result == 'deny' )
+				{
+					$list .= '不通過';
+				}
+
+				$list .= '</div>
 			</div>
 			<div class="row">
 				<label for="date" class="col-sm-3">不借用原因</label>

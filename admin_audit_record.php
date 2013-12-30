@@ -22,11 +22,13 @@
 	<!-- Custom styles for this template -->
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
+	<link href="css/theme.bootstrap.css" rel="stylesheet" />
 
 	<!-- Javascript --!>
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.tablesorter.bootstrap.js"></script>
 </head>
 	
 <body>
@@ -47,7 +49,7 @@
 		
 		<div class="col-md-10" >
 			<br>
-			<table class="table table-hover">
+			<table class="table table-hover tablesorter">
 				<thead>
 					<tr>
 						<th>日期</th>
@@ -57,7 +59,7 @@
 						<th>社團</th>
 						<th>申請人</th>
 						<th>連絡電話</th>
-						<th>參加人數</th>
+						<th data-sorter="false">參加人數</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -125,5 +127,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.tablesorter.min.js"></script>
+	<script src="js/jquery.tablesorter.widgets.min.js"></script>
 </body>
 </html>
