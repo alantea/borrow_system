@@ -70,7 +70,7 @@
 			$stmt = $mysqli->prepare("SELECT id,date,time,loc,club,pm,name,phone,attend,bdate,btime,admin_result
 	                          FROM dorm_list WHERE admin_result = ? ");
 	
-	$res = "Waiting";
+	$res = "wait";
 	$stmt->bind_param("s", $res);
 	
 	$stmt->execute();
