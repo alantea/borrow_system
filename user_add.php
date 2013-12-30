@@ -244,7 +244,9 @@
 			
 			// check time
 			if( ( $("#sh").val() > $("#eh").val() ) ||
-				(( $("#sh").val() == $("#eh").val() ) && ( $("#sm").val() >= $("#em").val() )) )
+				(( $("#sh").val() == $("#eh").val() ) && ( $("#sm").val() >= $("#em").val() )) ||
+				( $("#eh").val() - $("#sh").val() > 3 ) ||
+				( $("#eh").val() - $("#sh").val() == 3 &&  $("#em").val() - $("#sm").val() > 0 ))
 			{
 				alert("請輸入正確時間");
 				return false;
