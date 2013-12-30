@@ -17,7 +17,7 @@
 	}
 	
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date = ? ORDER BY time , loc");
+	                          FROM dorm_list WHERE date = ? AND admin_result = 'permit' ORDER BY time , loc");
 	$stmt->bind_param("s", $date);
 
 	$stmt->execute();
