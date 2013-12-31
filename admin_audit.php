@@ -120,14 +120,14 @@
 				</div><br><br>
 				<div class="form-group">
 					<label for="aresu" class="col-sm-2 control-label">審核結果</label>
-					<div class="col-sm-4">
-						<div class="radio col-sm-6">
+					<div class="radio col-sm-4">
+						<div class="col-sm-4">
 							<label>
 							    <input type="radio" name="aresu' . $id . '" id="aresu_agree" value="permit" checked>
 							    通過
 							</label>
 						</div>
-						<div class="radio col-sm-6">
+						<div class="col-sm-4">
 							<label>
 							    <input type="radio" name="aresu' . $id . '" id="aresu_deny" value="deny">
 							    不通過
