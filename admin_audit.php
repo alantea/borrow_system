@@ -125,27 +125,27 @@
 						<div class="radio col-sm-4">
 							<div class="col-sm-4">
 								<label>
-								    <input type="radio" name="aresu' . $id . '" id="aresu_agree" value="permit" checked>
+								    <input type="radio" name="aresu' . $id . '" id="aresu_agree' . $id . '" value="permit" checked>
 									通過
 								</label>
 							</div>
 							<div class="col-sm-4">
 								<label>
-									<input type="radio" name="aresu' . $id . '" id="aresu_deny" value="deny">
+									<input type="radio" name="aresu' . $id . '" id="aresu_deny' . $id . '" value="deny" data-toggle="collapse" data-target="#demo' . $id . '">
 								    不通過
 								</label>
 							</div>
 						</div>
 					</div>
-					<div>
+					<div id="demo' . $id . '" class="collapse">
 						<label for="ason" class="col-sm-2 control-label">未通過原因</label>
 						<div class="col-sm-4">
 							<textarea class="form-control" rows="3" id="ason' . $id . '" placeholder="某某原因" name="ason"></textarea>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-1">
-					<button class="btn btn-primary" id="sub' . $id . '">送出</button>
+					<div class="col-sm-3">
+						<button class="btn btn-primary" id="sub' . $id . '">送出</button>
+					</div>
 				</div>';
 
 		$list .= '</td></tr>';
@@ -186,6 +186,12 @@
 				//$( desid ).css("display","block");
 				//$( desid ).css("height","auto");
 			}
+		});
+
+		$("[id^='aresu_agree']").click(function(event){
+			 var num = (event.target.id).substr(11,(event.target.id).length);
+			 $( "#demo" + num ).attr( "class" , "collapse" );
+			 $( "#demo" + num ).css( "height" , "0px" );
 		});
 
 		$("[id^='sub']").click(function(event){

@@ -202,15 +202,20 @@
 			<div class="row">
 				<label for="date" class="col-sm-3">審核時間</label>
 				<div class="col-sm-5">' . $ad_date . '</div>
-			</div>
+			</div>';
+			if( $ad_result == 'deny' )
+			{
+				$list .='
 			<div class="row">
 				<label for="date" class="col-sm-3">不借用原因</label>
 				<div class="col-sm-5">' . $ad_reason . '</div>
-			</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+			</div>';
+			}
+			$list .='
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->' . '</td></tr>';
