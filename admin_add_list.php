@@ -47,12 +47,12 @@
 
 	// insert data
 	$stmt = $mysqli->prepare("INSERT INTO dorm_list(date,time,loc,club,pm,name,
-				              phone,sid,attend,bdate,btime,admin_name,admin_date,admin_result,admin_reason) VALUES
-				              ( ? , ? , ? , ? , ? , ? , ? , ? , ? , CURDATE() , CURTIME() , ? , NOW() , 'permit' , ? )");
+				              phone,sid,attend,bdate,btime,admin_name,admin_date,admin_result) VALUES
+				              ( ? , ? , ? , ? , ? , ? , ? , ? , ? , CURDATE() , CURTIME() , ? , NOW() , 'permit' )");
 	if( !($stmt->bind_param( "ssssssssiss" , $_POST['date'] ,  $_POST['time'] , $_POST['loc'] ,
 										   $_POST['club'] , $_POST['pm'] , $_POST['name'] ,
 										   $_POST['phone'] , $id , $_POST['attend'] , 
-										   $_POST['aname'] , $_POST['areason'] ) ))
+										   $_POST['aname'] ) ))
 	{
 		echo "Prepare failed (" . $mysqli->errno . ") " . $mysqli->error;
 		header("Location:insert_fail.php");

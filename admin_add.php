@@ -194,12 +194,14 @@
 						<input type="text" class="form-control" id="aname" placeholder="X先生" name="aname" required>
 					</div>
 				</div>
+				<!--
 				<div class="form-group">
 					<label for="areason" class="col-sm-2 control-label">通過原因</label>
 					<div class="col-sm-4">
 						<textarea class="form-control" id="areason" placeholder="可不填" name="areason" rows="3"></textarea>
 					</div>
 				</div>
+				--!>
 				<button type="submit" class="btn btn-default" id="nextstep">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
@@ -293,6 +295,12 @@
 			if( $("#attend").val() == "" )
 			{
 				alert("請輸入參加人數");
+				return false;
+			}
+			else if( ($("#loc").val() == "大AB1" || $("#loc").val() == "大CB1") && 
+					  $("#attend").val() < 30 )
+			{
+				alert( $("#loc").val() + "參加人數需30人以上" );
 				return false;
 			}
 			

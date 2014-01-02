@@ -110,11 +110,13 @@
 						<td><?php echo($_POST['aname']);?></td>
 						<input type="hidden" name="aname" value="<?php echo($_POST['aname']);?>" />
 					</tr>
+					<!--
 					<tr>
 						<th>通過原因</th>
 						<td><?php echo($_POST['areason']);?></td>
 						<input type="hidden" name="areason" value="<?php echo($_POST['areason']);?>" />
 					</tr>
+					--!>
 				</tbody>
 			</table>
 				<button type="submit" class="btn btn-default" id="nextstep">

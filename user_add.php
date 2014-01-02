@@ -305,6 +305,12 @@
 				alert("請輸入參加人數");
 				return false;
 			}
+			else if( ($("#loc").val() == "大AB1" || $("#loc").val() == "大CB1") && 
+					  $("#attend").val() < 30 )
+			{
+				alert( $("#loc").val() + "參加人數需30人以上" );
+				return false;
+			}
 
 			return true;
 		});
