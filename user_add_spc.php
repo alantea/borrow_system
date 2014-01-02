@@ -31,7 +31,7 @@
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0 });
+			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0 , maxDate: +30});
 		});
 	</script>
 </head>
