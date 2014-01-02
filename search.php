@@ -123,6 +123,24 @@
 			});
 			$( "#formsubmit").click(function(event){
 				event.preventDefault();
+				var loc = false;
+				if( $("#start").val() == "" || $("#end").val() == "" )
+				{
+					alert("請輸入區間");
+					return false;
+				}
+				$("input[name='select_loc[]']").each(function(){
+					if( $(this).prop("checked") )
+					{
+						loc = true;
+					}
+				});
+				if( !loc )
+				{
+					alert("請至少選擇一個場地");
+					return false;
+				}
+				
 					var request = $.ajax({
 					url: "getsearchlist.php",
 					type: "POST",
