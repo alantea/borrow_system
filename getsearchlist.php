@@ -74,7 +74,8 @@ function retrans( $x )
 	require("config/config.php");
 	
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date BETWEEN ? AND ? ORDER BY date ,time");
+	                          FROM dorm_list WHERE date BETWEEN ? AND ? 
+	                          AND admin_result = 'permit' ORDER BY date ,time");
 	$stmt->bind_param("ss", $_POST['stime'] , $_POST['etime'] );
 
 	$stmt->execute();
