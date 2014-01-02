@@ -113,38 +113,40 @@
 			
 		$list .= '
 				<div class="form-group">
-					<label for="aname" class="col-sm-2 control-label">承辦人</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="aname' . $id . '" placeholder="某" name="aname' . $id . '" required>
+					<div class="col-sm-12">
+						<label for="aname" class="col-sm-2 control-label">承辦人</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="aname' . $id . '" placeholder="某" name="aname' . $id . '" required>
+						</div>
 					</div>
-				</div><br><br>
-				<div class="form-group">
+		
+					<div class="col-sm-12">
 					<label for="aresu" class="col-sm-2 control-label">審核結果</label>
-					<div class="radio col-sm-4">
-						<div class="col-sm-4">
-							<label>
-							    <input type="radio" name="aresu' . $id . '" id="aresu_agree" value="permit" checked>
-							    通過
-							</label>
-						</div>
-						<div class="col-sm-4">
-							<label>
-							    <input type="radio" name="aresu' . $id . '" id="aresu_deny" value="deny">
-							    不通過
-							</label>
+						<div class="radio col-sm-4">
+							<div class="col-sm-4">
+								<label>
+								    <input type="radio" name="aresu' . $id . '" id="aresu_agree" value="permit" checked>
+									通過
+								</label>
+							</div>
+							<div class="col-sm-4">
+								<label>
+									<input type="radio" name="aresu' . $id . '" id="aresu_deny" value="deny">
+								    不通過
+								</label>
+							</div>
 						</div>
 					</div>
-				</div><br><br>
-				<div class="form-group">
-					<label for="ason" class="col-sm-2 control-label">未通過原因</label>
-					<div class="col-sm-4">
-						<textarea class="form-control" rows="3" id="ason' . $id . '" placeholder="某某原因" name="ason"></textarea>
+					<div>
+						<label for="ason" class="col-sm-2 control-label">未通過原因</label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="3" id="ason' . $id . '" placeholder="某某原因" name="ason"></textarea>
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-1">
 					<button class="btn btn-primary" id="sub' . $id . '">送出</button>
-				</div>
-				';
+				</div>';
 
 		$list .= '</td></tr>';
 
