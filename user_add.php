@@ -169,7 +169,7 @@
 				<div class="form-group">
 					<label for="schid" class="col-sm-2 control-label">申請人學號</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="schid" placeholder="400000000" name="schid" value="<?php echo $_SESSION['id']; ?>" disabled>
+						<input type="text" class="form-control" id="schid" placeholder="400000000" name="schid" value="<?php echo $_SESSION['id']; ?>" readonly>
 					</div>
 				</div>
 				<div class="form-group">
@@ -297,12 +297,14 @@
 
 			return true;
 		});
-		$("#schid").numeric();
+		// $("#schid").numeric();
 		$("#phone").numeric();
 		$("#attend").numeric();
+		/*
 		jQuery('#schid').keyup(function () {
       		this.value = this.value.replace(/[^0-9]/g,'');
 		 });
+		*/
 		jQuery('#phone').keyup(function () { 
 			this.value = this.value.replace(/[^0-9]/g,'');
 		});

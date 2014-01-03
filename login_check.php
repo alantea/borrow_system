@@ -11,7 +11,7 @@
 		}
 		else
 		{
-			$_SESSION['id']="apple";
+			$_SESSION['id']="412345678";
 		}
 		header("Location:user_index.php");
 	}
