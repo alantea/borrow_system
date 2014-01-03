@@ -63,14 +63,6 @@
 						?>" name="date" required>
 					</div>
 				</div>
-				<!--
-				<div class="form-group">
-					<label for="time" class="col-sm-2 control-label">借用時間(先採用直接輸入 , 8碼)</label>
-					<div class="col-sm-4">
-						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
-					</div>
-				</div>
-				--!>
 				<div class="form-group">
 					<label for="time" class="col-sm-2 control-label">借用時間</label>
 					<div class="col-sm-9 form-inline">
@@ -144,9 +136,6 @@
 						<h5 class="form-group col-sm-1">
 							分
 						</h5>
-						<!--
-						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
-						--!>
 					</div>
 				</div>
 				<div class="form-group">
@@ -180,7 +169,7 @@
 				<div class="form-group">
 					<label for="schid" class="col-sm-2 control-label">申請人學號</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="schid" placeholder="400000000" name="schid" required>
+						<input type="text" class="form-control" id="schid" placeholder="400000000" name="schid" value="<?php echo $_SESSION['id']; ?>" disabled>
 					</div>
 				</div>
 				<div class="form-group">
@@ -252,12 +241,6 @@
 				return false;
 			}
 
-			if( $("#time").val() == "" )
-			{
-				alert("請輸入正確時間");
-				return false;
-			}
-
 			if( $("#loc").val() == "other" && $("#newloc").val() == "" )
 			{
 				alert("請輸入正確地點");
@@ -275,13 +258,13 @@
 				alert("請輸入申請人");
 				return false;
 			}
-
+/*
 			if( $("#schid").val() == "")
 			{
 				alert("請輸入申請人學號");
 				return false;
 			}
-
+*/
 			if( $("#dep").val() == "")
 			{
 				alert("請輸入申請人系級");
