@@ -5,22 +5,24 @@
 		header("Location: index.php");
 		die();
 	}
-	if (!isset($_POST['agree']))
+	if( !isset($_SESSION['agree']) && !isset($_POST['agree']))
 	{
 		header("Location: user_rules.php");
 		die();
 	}
-	// can check if it is agree
+	
+	$_SESSION['agree'] = 1;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title> user Borrow </title>
+	<title> 新增借用 </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -29,16 +31,19 @@
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
 
-	<!-- Javascript --!>
+	<!-- Javascript -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.numeric.js"></script> <!-- source --!>
+	<script src="js/jquery.numeric.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			//$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
-			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
+			$( "#datepicker" ).datepicker( { dateformat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
 		});
 	</script>
 </head>
@@ -47,7 +52,7 @@
 
 	<?php include("user_navbar"); ?>
 	
-	<!-- content --!>
+	<!-- content -->
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">

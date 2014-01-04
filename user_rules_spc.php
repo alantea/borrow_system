@@ -9,12 +9,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> user Borrow </title>
+	<title> 特殊借用規範 </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -23,7 +24,11 @@
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
 
-	<!-- Javascript --!>
+	<!-- Javascript -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.numeric.js"></script> <!-- source --!>
@@ -41,7 +46,7 @@
 
 	<?php include("user_navbar"); ?>
 	
-	<!-- content --!>
+	<!-- content -->
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
