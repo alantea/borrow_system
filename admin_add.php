@@ -9,12 +9,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> admin Borrow </title>
+	<title> 新增借用 </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -23,15 +24,19 @@
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/user_index.css" rel="stylesheet" />
 
-	<!-- Javascript --!>
+	<!-- Javascript -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.numeric.js"></script> <!-- source --!>
+	<script src="js/jquery.numeric.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" });
+			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0 , maxDate: +30 });
 		});
 	</script>
 </head>
@@ -40,7 +45,7 @@
 
 	<?php include("user_navbar"); ?>
 
-	<!-- content --!>
+	<!-- content -->
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
@@ -135,9 +140,6 @@
 						<h5 class="form-group col-sm-1">
 							分
 						</h5>
-						<!--
-						<input type="number" class="form-control" id="time" placeholder="19002100" name="time" required>
-						--!>
 					</div>
 				</div>
 				<div class="form-group">
@@ -201,7 +203,7 @@
 						<textarea class="form-control" id="areason" placeholder="可不填" name="areason" rows="3"></textarea>
 					</div>
 				</div>
-				--!>
+				-->
 				<button type="submit" class="btn btn-default" id="nextstep">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
