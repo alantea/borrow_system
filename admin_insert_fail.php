@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if( $_SESSION['id'] == "" )
+	if( $_SESSION['id'] != "SE" )
 	{
-		header("Location: index.php");
+		header("Location:login.php");
 		die();
 	}
 	else if( $_SESSION['in_fail'] == "" )
@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> user Borrow </title>
+	<title> Borrow Success </title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,13 +42,14 @@
 	<div class="container">
 		<div class="col-md-2 list" >
 			<ul class="nav">
-				<a href="user_add.php" class="list-group-item active">新增借用</a>
-				<a href="user_record.php" class="list-group-item">借用紀錄</a>
-				<a href="user_index.php" class="list-group-item" >管理介面</a>
+				<a href="admin_audit.php" class="list-group-item">審核借用</a>
+				<a href="admin_audit_record.php" class="list-group-item">審核紀錄</a>
+				<a href="admin_add.php" class="list-group-item active">新增借用</a>
+				<a href="admin_record.php" class="list-group-item">借用紀錄</a>
+				<a href="admin_index.php" class="list-group-item">管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" >
-			<br>
+		<div class="col-md-10" style="padding-top: 30px">
 			<h2> 新增失敗 </h2>
 			<li>原因 : 
 			<?php

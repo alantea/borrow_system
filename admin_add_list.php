@@ -10,9 +10,9 @@
 
 	$id = $_SESSION['id'];	// sid use $id
 
-	// check the time is not collision
+	// check the time is not collision , only select permit
 	$check_time = $mysqli->prepare("SELECT date,time,loc,admin_result FROM dorm_list
-									WHERE date = ? AND loc = ?");
+									WHERE date = ? AND loc = ? AND admin_result = 'permit'");
 	$check_time->bind_param("ss" , $_POST['date'] , $_POST['loc'] );
 	$check_time->execute();
 	$check_time->bind_result($no,$gettime,$no,$no);
@@ -34,13 +34,15 @@
 		if( ( $insm + $insh * 60 < $sm + $sh * 60 ) &&
 			( $inem + $ineh * 60 > $sm + $sh * 60 ))
 		{
-			echo "時間爆炸";
+			$_SESSION['in_fail'] = 1;
+			header("Location:admin_insert_fail.php");
 			die();
 		}
 		else if( ( $insm + $insh * 60 >= $sm + $sh * 60 ) &&
 				 ( $insm + $insh * 60 < $em + $eh * 60 ))
 		{
-			echo "時間爆炸2";
+			$_SESSION['in_fail'] = 1;
+			header("Location:admin_insert_fail.php");
 			die();
 		}
 	}
@@ -63,12 +65,13 @@
 	{
 		// $stmt->exit();
 		header("Location:admin_insert_success.php");
+		die();
 	}
 	else
 	{
-		echo 'error';
-		die();
+		 $_SESSION['in_fail'] = 2;
 		header("Location:admin_insert_fail.php");
+		die();
 	}
 
 ?>

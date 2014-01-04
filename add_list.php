@@ -10,9 +10,9 @@
 
 	$id = $_SESSION['id'];
 
-	// check the time is not collision
+	// check the time is not collision , only select permit
 	$check_time = $mysqli->prepare("SELECT date,time,loc,admin_result FROM dorm_list
-									WHERE date = ? AND loc = ?");
+									WHERE date = ? AND loc = ? AND admin_result = 'permit'");
 	$check_time->bind_param("ss" , $_POST['date'] , $_POST['loc'] );
 	$check_time->execute();
 	$check_time->bind_result($no,$gettime,$no,$no);
@@ -34,13 +34,15 @@
 		if( ( $insm + $insh * 60 < $sm + $sh * 60 ) &&
 			( $inem + $ineh * 60 > $sm + $sh * 60 ))
 		{
-			echo "時間爆炸";
+			$_SESSION['in_fail'] = 1;
+			header("Location:insert_fail.php");
 			die();
 		}
 		else if( ( $insm + $insh * 60 >= $sm + $sh * 60 ) &&
 				 ( $insm + $insh * 60 < $em + $eh * 60 ))
 		{
-			echo "時間爆炸2";
+			$_SESSION['in_fail'] = 1;
+			header("Location:insert_fail.php");
 			die();
 		}
 	}
@@ -61,37 +63,13 @@
 	{
 		// $stmt->exit();
 		header("Location:insert_success.php");
+		die();
 	}
 	else
 	{
+		 $_SESSION['in_fail'] = 2;
 		header("Location:insert_fail.php");
+		die();
 	}
-
-	/*
-	$query = "INSERT INTO dorm_list(date,time,loc,club,pm,name,
-									phone,attend,bdate,btime,sid) VALUES ";
-	$data = "'" . $_POST['date'] . "'";
-	$data .= ",'" . $_POST['time'] . "'";
-	$data .= ",'" . $_POST['loc'] . "'";
-	$data .= ",'" . $_POST['club'] . "'";
-	$data .= ",'" . $_POST['pm'] . "'";
-	$data .= ",'" . $_POST['name'] . "'";
-	$data .= ",'" . $_POST['phone'] . "'";
-	$data .= "," . $_POST['attend'];
-	$data .= "," . "CURDATE()" . "," . "CURTIME()";
-	$data .= ",'" . $_SESSION['id'] . "'";
-	
-	$query .= "(" . $data . ")";
-	
-	$result = $mysqli->query( $query , MYSQLI_USE_RESULT);
-	if( $result )
-	{
-		header("Location:insert_success.php");
-	}
-	else
-	{
-		header("Location:insert_fail.php");
-	}
-	*/
 
 ?>
