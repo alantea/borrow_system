@@ -5,6 +5,11 @@
 		header("Location: index.php");
 		die();
 	}
+	if ( $_SESSION['agree'] == "")
+	{
+		header("Location: user_rules.php");
+		die();
+	}
 	// can check if it is agree
 ?>
 <!DOCTYPE html>
