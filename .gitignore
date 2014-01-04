@@ -1,9 +1,9 @@
-bootstrap*
-jquery-*
+# bootstrap*
+# jquery-*
 
 file/
-fonts/
-css/images/*
+# fonts/
+# css/images/*
 
 # test file
 tmp/
