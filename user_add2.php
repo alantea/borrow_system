@@ -146,6 +146,7 @@
 			學號：<span style="display: inline-block;width:150px;text-align:right;font-weight:bolder"><?php echo($_POST['schid']);?></span><br></p>
 			<p class = "pd">
 			中華民國 <span style="display: inline-block;width:100px;text-align:center"><?php 
+			date_default_timezone_set("Asia/Taipei");
 			$nowyear = date("Y") - 1911;
 			echo date($nowyear);?></span>年
 			<span style="display: inline-block;width:100px;text-align:center"><?php echo date("m");?></span>月
