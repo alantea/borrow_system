@@ -52,9 +52,55 @@
 				<a href="user_index.php" class="list-group-item" >管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" >
-			<br>
-			
+		<div class="col-md-10" style="padding-top:10px">
+		<?php
+			require("config/config.php");
+			$check_time = $mysqli->prepare("SELECT date,time,club,admin_result FROM dorm_list
+											WHERE date = ? AND club = ? AND admin_result != 'deny'");
+			$check_time->bind_param("ss" , $_POST['date'] , $_POST['club'] );
+			$check_time->execute();
+			$check_time->bind_result($no,$gettime,$no,$no);
+
+			$sh = $_POST['sh'];
+			$sm = $_POST['sm'];
+			$eh = $_POST['eh'];
+			$em = $_POST['em'];
+
+			while( $check_time->fetch() )
+			{
+				$str_time=$gettime;
+				$insh = (int)substr( $str_time , 0 , 2 );
+				$insm = (int)substr( $str_time , 2 , 2 );
+				$ineh = (int)substr( $str_time , 4 , 2 );
+				$inem = (int)substr( $str_time , 6 , 2 );
+	
+				if( ( $sm + $sh * 60 < $insm + $insh * 60 ) &&
+					( $em + $eh * 60 > $insm + $insh * 60 ))
+				{
+					$error_msg = '<h2>您已有申請同時段其他場次，不可再申請</h2>';
+					break;
+				}
+				else if( ( $sm + $sh * 60 >= $insm + $insh * 60 ) &&
+						 ( $sm + $sh * 60 < $inem + $ineh * 60 ))
+				{
+					$error_msg = '<h2>您已有申請同時段其他場次，不可再申請</h2>';
+					break;
+				}
+			}
+			if( isset($error_msg) )
+			{
+				echo $error_msg . '
+		</div>
+	</div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>';
+				die();
+			}
+		?>
 			<h3> 確認資料 </h3>
 			<form role="form" action="add_list.php" method="POST">
 			<table class="table table-bordered">
