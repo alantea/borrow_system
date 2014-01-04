@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if( $_SESSION['id'] != "SE" )
+	if( !isset($_SESSION['id']) && $_SESSION['id'] != "SE" )
 	{
-		header("Location:login.php");
+		header("Location:index.php");
 		die();
 	}
 ?>
