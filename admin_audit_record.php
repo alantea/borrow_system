@@ -115,7 +115,7 @@
 
 	$borrowed = false;
 				
-	for( $i = 1 ;  $stmt->fetch() ; $i++ )
+	while( $stmt->fetch() )
 	{
 		$list = "<tr><td>";
 		$list .= $date . "</td><td>";
@@ -154,8 +154,8 @@
 		$list .= "</td><td>";
 		$borrowed = true;
 		$list .= '<div class="btn btn-default" data-toggle="modal" 
-					   data-target="#myModal' . $i . '">Detail</div>' .
-'<div class="modal fade" id="myModal' . $i . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel' . $i . '" aria-hidden="true">
+					   data-target="#myModal' . $id . '">Detail</div>' .
+'<div class="modal fade" id="myModal' . $id . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel' . $id . '" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -236,6 +236,7 @@
 			$list .='
 		</div>
 		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" id="delete' . $id . '">Delete</button>
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		</div>
     </div><!-- /.modal-content -->
