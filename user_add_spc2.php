@@ -5,6 +5,11 @@
 		header("Location: index.php");
 		die();
 	}
+	if(empty($_POST['date']))
+	{
+		header("Location: user_rules_spc.php");
+		die();
+	}
 ?>
 <!DOCTYPE html>
 <html>
