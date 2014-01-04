@@ -5,7 +5,7 @@
 		header("Location: index.php");
 		die();
 	}
-	if (!isset($_SESSION['agree']) || (!isset($_POST['date']))
+	if (!isset($_SESSION['agree']) || (!isset($_POST['date'])))
 	{	// check agree & data hava submit to it.
 		header("Location: user_rules.php");
 		die();
