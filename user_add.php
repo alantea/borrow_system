@@ -43,7 +43,7 @@
 	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
 	<script>
 		$(function() {
-			$( "#datepicker" ).datepicker( { dateformat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
+			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
 		});
 	</script>
 </head>
@@ -268,13 +268,6 @@
 				alert("請輸入申請人");
 				return false;
 			}
-/*
-			if( $("#schid").val() == "")
-			{
-				alert("請輸入申請人學號");
-				return false;
-			}
-*/
 			if( $("#dep").val() == "")
 			{
 				alert("請輸入申請人系級");
@@ -307,14 +300,8 @@
 
 			return true;
 		});
-		// $("#schid").numeric();
 		$("#phone").numeric();
 		$("#attend").numeric();
-		/*
-		jQuery('#schid').keyup(function () {
-      		this.value = this.value.replace(/[^0-9]/g,'');
-		 });
-		*/
 		jQuery('#phone').keyup(function () { 
 			this.value = this.value.replace(/[^0-9]/g,'');
 		});
