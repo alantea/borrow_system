@@ -5,7 +5,7 @@
 		header("Location: index.php");
 		die();
 	}
-	if( $_SESSION['agree'] == "" )
+	if( !isset($_POST['agree']) )
 	{
 		header("Location: user_rules_spc.php");
 		die();
