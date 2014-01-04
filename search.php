@@ -34,7 +34,7 @@
 	
 <body>
 	<?php
-		if( !$_SESSION['id'] || $_SESSION['id'] == "" )
+		if( !isset($_SESSION['id']) )
 		{
 			include("navbar");
 		}
