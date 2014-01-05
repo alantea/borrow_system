@@ -153,7 +153,7 @@
 		}
 		$list .= "</td><td>";
 		$borrowed = true;
-		$list .= '<div class="btn btn-default" data-toggle="modal" 
+		$list .= '<div class="btn btn-default" data-toggle="modal" id="detail' . $id . '"
 					   data-target="#myModal' . $id . '">Detail</div>' .
 '<div class="modal fade" id="myModal' . $id . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel' . $id . '" aria-hidden="true">
   <div class="modal-dialog">
@@ -237,7 +237,7 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-danger" id="delete' . $id . '">Delete</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal" id="close' . $id . '" >Close</button>
 		</div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -266,5 +266,32 @@
 	<script src="js/jquery.tablesorter.widgets.min.js"></script>
 	<script src="js/jquery.tablesorter.pager.min.js"></script>
 	<script src="js/jquery.tablesorter.pager.bootstrap.js"></script>
+	<script>
+		$("[id^='delete']").click(function(event){
+			var num = (event.target.id).substr(6,(event.target.id).length);
+			// alert(num);
+			if( confirm("請再次確認是否要刪除") )
+			{
+				$.ajax({
+					type: "POST",
+					url: "admin_delete_list.php",
+					data: { lid: num}
+				})
+				.done(function( msg ) {
+					if( msg == "1" )
+					{
+						$( "#detail" + num ).attr("disabled","disabled");
+						$( "#detail" + num ).attr("class","btn btn-danger");
+						$( "#detail" + num ).text( "已刪除" );
+						$( "#close" + num ).trigger( "click" );
+					}
+					else
+					{
+						alert( "錯誤代碼: " + msg );
+					}
+				});
+			}
+		});
+	</script>
 </body>
 </html>
