@@ -33,6 +33,7 @@
 		}
 		else
 		{
+			$_SESSION['login_fail']=1;
 			header("Location:login.php");
 		}
 	}

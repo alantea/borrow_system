@@ -35,9 +35,15 @@
 	<body>
 
 		<div class="container">
-
 			<form class="form-signin" action="login_check.php" method="POST">
 				<h2 class="form-signin-heading">CCU 場地借用系統</h2>
+				<?php
+					if( isset( $_SESSION['login_fail']) )
+					{
+						echo '<div class="alert alert-danger">帳號或密碼輸入錯誤，請再輸入一次</div>';
+						unset( $_SESSION['login_fail'] );
+					}
+				?>
 				<input type="text" class="form-control" placeholder="學號" name="id" autofocus>
 				<input type="password" class="form-control" placeholder="密碼" name="pw" />
 				<div class="radio">
