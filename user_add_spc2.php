@@ -172,9 +172,8 @@
 
 								date_default_timezone_set('Asia/Taipei');
 								$now_weekday = date("w" , strtotime($_POST['date']) );
-
-								$first_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") - $now_weekday , date("Y") ) );
-								$last_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") +( 6 - $now_weekday) , date("Y") ) );
+								$first_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m",strtotime($_POST['date'])) , date("d",strtotime($_POST['date'])) - $now_weekday , date("Y",strtotime($_POST['date'])) ) );
+								$last_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m",strtotime($_POST['date'])) , date("d",strtotime($_POST['date'])) +( 6 - $now_weekday) , date("Y",strtotime($_POST['date'])) ) );
 								
 								require("config/config.php");
 								

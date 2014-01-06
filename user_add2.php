@@ -87,6 +87,26 @@
 					break;
 				}
 			}
+
+			// can't borrow more than 3 times.
+			date_default_timezone_set('Asia/Taipei');
+			$now_weekday = date("w" , strtotime($_POST['date']) );
+			$first_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m",strtotime($_POST['date'])) , date("d",strtotime($_POST['date'])) - $now_weekday , date("Y",strtotime($_POST['date'])) ) );
+			$last_weekday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m",strtotime($_POST['date'])) , date("d",strtotime($_POST['date'])) +( 6 - $now_weekday) , date("Y",strtotime($_POST['date'])) ) );
+								
+			$stmt = $mysqli->prepare("SELECT date,club FROM dorm_list WHERE club = ? AND date BETWEEN ? AND ?");
+			$stmt->bind_param("sss",$_POST['club'],$first_weekday,$last_weekday);
+			$stmt->execute();
+			$stmt->bind_result($date,$club);
+			$count = 0;
+			for( $count = 0 ; $stmt->fetch() ; $count++ ){}
+			
+			if( $count >= 2 )
+			{
+				$error_msg = '<h2>一週內借用場次達3場次以上，請點選此處進行申請</h2>
+				<a href="./user_rules_spc.php" class="btn btn-info">特殊借用</a>';
+			}
+
 			if( isset($error_msg) )
 			{
 				echo $error_msg . '
