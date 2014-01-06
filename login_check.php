@@ -24,9 +24,12 @@
 		$stmt->execute();
 		$stmt->bind_result($id,$pw,$de);
 		
-		$stmt->fetch();
-
-		if( $pw == $_POST['pw'] )
+		if( !$stmt->fetch() )
+		{
+			$_SESSION['login_fail']=1;
+			header("Location:login.php");
+		}
+		else if( $pw == $_POST['pw'] )
 		{
 			$_SESSION['id']=$de;
 			header("Location:admin_index.php");
