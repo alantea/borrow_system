@@ -66,8 +66,10 @@
 					echo( "Database出現問題，請稍後再試" );
 				}
 				else
-				{
-					echo( "不明錯誤" );
+				{ // 3. some input no input
+				  // 4. date format is not correct
+				  // 5. time format
+					echo( "不明錯誤 代碼 :" . $_SESSION['in_fail'] );
 				}
 			?>
 			</li>

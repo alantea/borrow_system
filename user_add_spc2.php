@@ -10,6 +10,8 @@
 		header("Location: user_rules.php");
 		die();
 	}
+	// that add_list check the source is special
+	$_SESSION['special'] = 1;
 ?>
 <!DOCTYPE html>
 <html>
