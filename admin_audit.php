@@ -40,7 +40,7 @@
 
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item active">審核借用</a>
 				<a href="admin_audit_record.php" class="list-group-item">審核紀錄</a>
@@ -50,8 +50,7 @@
 			</ul>
 		</div>
 		
-		<div class="col-md-10" >
-			<br>
+		<div class="col-md-10">
 			<table class="table table-hover">
 				<thead>
 					<tr>

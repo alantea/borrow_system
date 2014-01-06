@@ -51,7 +51,6 @@
 
 	<!-- content -->
 	<div class="container">
-		<br>
 		<div id="search_list" class="col-md-3 well">
 			<form action="/" method="POST" id="search_form">
 				<legend>日期區間</legend>
@@ -154,6 +153,10 @@
 				});
 				request.done(function(msg) {
 					$("#search_table").html( msg );
+				    var target = "#search_table";
+			        $('html, body').animate({
+	        	        scrollTop: $(target).offset().top - 50
+       	            }, 1500);
 				});
 			});
 		});

@@ -48,15 +48,14 @@
 	
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="user_rules.php" class="list-group-item active">新增借用</a>
 				<a href="user_record.php" class="list-group-item">借用紀錄</a>
 				<a href="user_index.php" class="list-group-item" >管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-6" >
-			<br />
+		<div class="col-md-6" style="padding-top:20px">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					學士班宿舍場地申請登記注意事項

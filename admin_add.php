@@ -47,7 +47,7 @@
 
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item">審核借用</a>
 				<a href="admin_audit_record.php" class="list-group-item">審核紀錄</a>
@@ -56,7 +56,7 @@
 				<a href="admin_index.php" class="list-group-item">管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" style="padding-top: 32px">
+		<div class="col-md-10" style="padding-top:20px">
 			<form class="form-horizontal" role="form" action="admin_add2.php" method="POST">
 				<div class="form-group">
 					<label for="date" class="col-sm-2 control-label">借用日期</label>

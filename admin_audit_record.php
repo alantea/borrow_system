@@ -53,7 +53,7 @@
 
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item">審核借用</a>
 				<a href="admin_audit_record.php" class="list-group-item active">審核紀錄</a>
@@ -63,13 +63,12 @@
 			</ul>
 		</div>
 		
-		<div class="col-md-10" >
-			<br>
-			<table class="table table-hover tablesorter">
+		<div class="col-md-10" style="padding-top:20px">
+			<table class="table table-bordered tablesorter">
 				<thead>
 					<tr>
 						<th>日期</th>
-						<th>時間</th>
+						<th>時段</th>
 						<th>地點</th>
 						<th>社團</th>
 						<th>申請人</th>
@@ -81,7 +80,7 @@
 				</thead>
 				<tfoot>
 					<tr>
-						<th colspan="7" class=" ts-pager form-horizontal">
+						<th colspan="9" class=" ts-pager form-horizontal">
 							<button type="button" class="btn first"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
 							<button type="button" class="btn prev"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
 							<span class="pagedisplay"></span> <!-- this can be any element, including an input -->

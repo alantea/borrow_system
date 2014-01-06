@@ -40,7 +40,7 @@
 	
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="user_add.php" class="list-group-item active">新增借用</a>
 				<a href="user_record.php" class="list-group-item">借用紀錄</a>
@@ -48,7 +48,6 @@
 			</ul>
 		</div>
 		<div class="col-md-10" >
-			<br>
 			<h2> 新增成功 </h2>
 		</div>
 	</div><!-- /.container -->

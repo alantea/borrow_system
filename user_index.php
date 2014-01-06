@@ -45,7 +45,7 @@
 
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="user_rules.php" class="list-group-item">新增借用</a>
 				<a href="user_record.php" class="list-group-item">借用紀錄</a>

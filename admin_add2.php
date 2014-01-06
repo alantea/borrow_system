@@ -40,7 +40,7 @@
 	
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2 list" >
+		<div class="col-md-2" style="padding:20px">
 			<ul class="nav">
 				<a href="admin_audit.php" class="list-group-item">審核借用</a>
 				<a href="admin_audit_record.php" class="list-group-item">審核紀錄</a>
@@ -49,9 +49,7 @@
 				<a href="admin_index.php" class="list-group-item">管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" >
-			<br>
-			
+		<div class="col-md-10">
 			<h3> 確認資料 </h3>
 			<form role="form" action="admin_add_list.php" method="POST">
 			<table class="table table-bordered">
