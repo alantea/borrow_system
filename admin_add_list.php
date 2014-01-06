@@ -35,7 +35,7 @@
 	$today = date("Y-m-d");
 	
 	$thirtyday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") + 30 , date("Y") ));
-	if( $borrowday > $tenday || $borrowday < $today )
+	if( $borrowday > $thirtyday || $borrowday < $today )
 	{
 		$_SESSION['in_fail'] = 6;
 		header("Location:admin_insert_fail.php");

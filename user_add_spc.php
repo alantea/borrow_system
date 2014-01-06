@@ -76,7 +76,7 @@
 				<div class="form-group">
 					<label for="time" class="col-sm-2 control-label">借用時間</label>
 					<div class="col-sm-9 form-inline">
-						<div class="form-group col-sm-2">
+						<div class="form-group col-sm-2 col-xs-11">
 							<select class="form-control" name="sh" id="sh">
 								<option value="08">08</option>
 								<option value="09">09</option>
@@ -95,10 +95,10 @@
 								<option value="22">22</option>
 							</select>
 						</div>
-						<h5 class="form-group col-sm-1">
+						<h5 class="form-group col-sm-1 col-xs-1">
 							時
 						</h5>
-						<div class="form-group col-sm-2">
+						<div class="form-group col-sm-2 col-xs-11">
 							<select class="form-control" name="sm" id="sm">
 								<option value="00">00</option>
 								<option value="10">10</option>
@@ -108,10 +108,10 @@
 								<option value="50">50</option>
 							</select>
 						</div>
-						<h5 class="form-group col-sm-1">
+						<h5 class="form-group col-sm-1 col-xs-1">
 							分-
 						</h5>
-						<div class="form-group col-sm-2">
+						<div class="form-group col-sm-2 col-xs-11">
 							<select class="form-control" name="eh" id="eh">
 								<option value="08">08</option>
 								<option value="09">09</option>
@@ -130,10 +130,10 @@
 								<option value="22">22</option>
 							</select>
 						</div>
-						<h5 class="form-group col-sm-1">
+						<h5 class="form-group col-sm-1 col-xs-1">
 							時
 						</h5>
-						<div class="form-group col-sm-2">
+						<div class="form-group col-sm-2 col-xs-11">
 							<select class="form-control" name="em" id="em">
 								<option value="00">00</option>
 								<option value="10">10</option>
@@ -143,7 +143,7 @@
 								<option value="50">50</option>
 							</select>
 						</div>
-						<h5 class="form-group col-sm-1">
+						<h5 class="form-group col-sm-1 col-xs-1">
 							分
 						</h5>
 					</div>

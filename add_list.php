@@ -46,7 +46,7 @@
 	else if( isset($_SESSION['special']) == 1 )
 	{
 		$thirtyday = date("Y-m-d" , mktime( 0 , 0 , 0 , date("m") , date("d") + 30 , date("Y") ));
-		if( $borrowday > $tenday || $borrowday < $today )
+		if( $borrowday > $thirtyday || $borrowday < $today )
 		{
 			$_SESSION['in_fail'] = 6;
 			header("Location:insert_fail.php");

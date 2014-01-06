@@ -47,11 +47,11 @@
 				<input type="text" class="form-control" placeholder="學號" name="id" autofocus>
 				<input type="password" class="form-control" placeholder="密碼" name="pw" />
 				<div class="radio">
-					<label class="col-sm-6">
+					<label class="col-xs-6">
 						<input type="radio" name="iden" value="student" checked>
 						學生
 					</label>
-					<label class="col-sm-6">
+					<label class="col-xs-6">
 						<input type="radio" name="iden" value="staff">
 						管理員
 					</label>
