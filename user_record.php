@@ -160,44 +160,44 @@
       </div>
       <div class="modal-body">
 			<div class="row">
-				<label for="date" class="col-sm-3">日期</label>
-				<div class="col-sm-5">' . $date . '</div>
+				<label for="date" class="col-xs-3">日期</label>
+				<div class="col-xs-9">' . $date . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">時段</label>
-				<div class="col-sm-5">' . $time . '</div>
+				<label for="date" class="col-xs-3">時段</label>
+				<div class="col-xs-9">' . $time . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">地點</label>
-				<div class="col-sm-5">' . $loc . '</div>
+				<label for="date" class="col-xs-3">地點</label>
+				<div class="col-xs-9">' . $loc . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">社團</label>
-				<div class="col-sm-5">' . $club . '</div>
+				<label for="date" class="col-xs-3">社團</label>
+				<div class="col-xs-9">' . $club . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">申請人</label>
-				<div class="col-sm-5">' . $pm . '</div>
+				<label for="date" class="col-xs-3">申請人</label>
+				<div class="col-xs-9">' . $pm . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">活動名稱</label>
-				<div class="col-sm-5">' . $name . '</div>
+				<label for="date" class="col-xs-3">活動名稱</label>
+				<div class="col-xs-9">' . $name . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">連絡電話</label>
-				<div class="col-sm-5">' . $phone . '</div>
+				<label for="date" class="col-xs-3">連絡電話</label>
+				<div class="col-xs-9">' . $phone . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">參加人數</label>
-				<div class="col-sm-5">' . $attend . '</div>
+				<label for="date" class="col-xs-3">參加人數</label>
+				<div class="col-xs-9">' . $attend . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">借用時間</label>
-				<div class="col-sm-5">' . $bdate . ' ' . $btime . '</div>
+				<label for="date" class="col-xs-3">借用時間</label>
+				<div class="col-xs-9">' . $bdate . ' ' . $btime . '</div>
 			</div>
 			<div class="row">
-				<label for="date" class="col-sm-3">借用結果</label>
-				<div class="col-sm-5">';
+				<label for="date" class="col-xs-3">借用結果</label>
+				<div class="col-xs-9">';
 				if( $ad_result == 'wait' )
 				{
 					$list .= '處理中';
@@ -217,8 +217,8 @@
 			{
 				$list .='
 			<div class="row">
-				<label for="date" class="col-sm-3">不借用原因</label>
-				<div class="col-sm-5">' . $ad_reason . '</div>
+				<label for="date" class="col-xs-3">不借用原因</label>
+				<div class="col-xs-9">' . $ad_reason . '</div>
 			</div>';
 			}
 			$list .='

@@ -67,7 +67,6 @@
 					</tr>
 				</thead>
 				<tbody>
-				<tr>
 		
 		<?php
 			require("config/config.php");
@@ -86,7 +85,7 @@
 				
 	for( $i = 1 ;  $stmt->fetch() ; $i++ )
 	{
-		$list = '<tr class="panel-heading panel-title"><td>';
+		$list = '<tr><td>';
 		$list .= $date . "</td><td>";
 						
 		$str_time=$time;
@@ -134,7 +133,7 @@
 									通過
 								</label>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-8">
 								<label>
 									<input type="radio" name="aresu' . $id . '" id="aresu_deny' . $id . '" value="deny" data-toggle="collapse" data-target="#demo' . $id . '">
 								    不通過
