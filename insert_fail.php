@@ -5,7 +5,7 @@
 		header("Location: index.php");
 		die();
 	}
-	else if( $_SESSION['in_fail'] == "" )
+	else if( !isset($_SESSION['in_fail']) )
 	{
 		header("Location: index.php");
 		die();
@@ -69,7 +69,8 @@
 				{ // 3. some input no input
 				  // 4. date format is not correct
 				  // 5. time format
-					echo( "不明錯誤 代碼 :" . $_SESSION['in_fail'] );
+				  // 6. date fromat is not in accept
+					echo( "不明錯誤 0x00000" . $_SESSION['in_fail'] );
 				}
 			?>
 			</li>
