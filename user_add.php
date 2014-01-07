@@ -50,7 +50,7 @@
 	
 <body>
 
-	<?php include("user_navbar"); ?>
+	<?php include("user_navbar.php"); ?>
 	
 	<!-- content -->
 	<div class="container">

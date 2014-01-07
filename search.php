@@ -41,11 +41,11 @@
 	<?php
 		if( !isset($_SESSION['id']) )
 		{
-			include("navbar");
+			include("navbar.php");
 		}
 		else
 		{
-			include("user_navbar");
+			include("user_navbar.php");
 		}
 	?>
 
