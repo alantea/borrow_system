@@ -179,6 +179,71 @@
 						<td><?php echo($_POST['attend']) . "人";?></td>
 						<input type="hidden" name="attend" value="<?php echo($_POST['attend']);?>" />
 					</tr>
+					<?php
+						// check borrow day have collision
+						$stmt = $mysqli->prepare("SELECT date,time,admin_result FROM dorm_list
+												  WHERE date = ? AND admin_result = 'wait'
+												  ORDER by time");
+						$stmt->bind_param("s" , $_POST['date'] );
+						$stmt->execute();
+						$stmt->bind_result($no,$gettime,$getresult);
+
+						// $sh $sm $eh $em
+						$wait_msg = "";
+						$wait_count = 0;
+//						$permit_msg = "";
+
+						while( $stmt->fetch() )
+						{
+							$str_time=$gettime;
+							$insh = (int)$str_insh = substr( $str_time , 0 , 2 );
+							$insm = (int)$str_insm = substr( $str_time , 2 , 2 );
+							$ineh = (int)$str_ineh = substr( $str_time , 4 , 2 );
+							$inem = (int)$str_inem = substr( $str_time , 6 , 2 );
+	
+							if( ( $sm + $sh * 60 < $insm + $insh * 60 ) &&
+								( $em + $eh * 60 > $insm + $insh * 60 ))
+							{
+								/*
+								if( $getresult == 'permit' )
+								{
+									$permit_msg .= $str_insh . ":" . $str_insm . " - " .
+												   $str_ineh . ":" . $str_inem . " ";
+								}
+								else if( $getresult == 'wait' )
+								{
+								*/
+									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+												 $str_ineh . ":" . $str_inem . " ";
+									$wait_count++;
+								//}
+							}
+							else if( ( $sm + $sh * 60 >= $insm + $insh * 60 ) &&
+									 ( $sm + $sh * 60 < $inem + $ineh * 60 ))
+							{
+								/*
+								if( $getresult == 'permit' )
+								{
+									$permit_msg .= $str_insh . ":" . $str_insm . " - " .
+												   $str_ineh . ":" . $str_inem . " ";
+								}
+								else if( $getresult == 'wait' )
+								{
+								*/
+									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+												 $str_ineh . ":" . $str_inem . " ";
+									$wait_count++;
+								//}
+							}
+						}
+//						echo "permit : " . $permit_msg . "<br>";
+						if( $wait_count != 0 )
+						{
+							echo '<tr><td colspan="2">目前已有 ' . $wait_count . 
+								 ' 個活動申請 , 時段分別為 : <br />' . $wait_msg . 
+								 '<br />若依舊想要借用請點選下一步</td></tr>';
+						}
+					?>
 				</tbody>
 			</table>
 			<table class = "table1">
