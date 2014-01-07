@@ -202,12 +202,14 @@
 					echo '</ul></td></tr>';
 
 								// check borrow day have collision
-								$stmt = $mysqli->prepare("SELECT date,time,admin_result FROM dorm_list
-														  WHERE date = ? AND admin_result = 'wait'
+								$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
+														  FROM dorm_list
+														  WHERE date = ? AND loc = ?
+														  AND admin_result = 'wait'
 														  ORDER by time");
-								$stmt->bind_param("s" , $_POST['date'] );
+								$stmt->bind_param("ss" , $_POST['date'] , $str_loc );
 								$stmt->execute();
-								$stmt->bind_result($no,$gettime,$getresult);
+								$stmt->bind_result($no,$gettime,$no,$getresult);
 
 								$wait_msg = "";
 								$wait_count = 0;

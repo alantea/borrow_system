@@ -49,7 +49,10 @@
 				<a href="admin_index.php" class="list-group-item active">管理介面</a>
 			</ul>
 		</div>
-		<div class="col-md-10" >
+		<div class="col-md-10" style="padding-top:20px">
+			<ul>
+				<li> 審核借用請從最上面開始審理，以免發生先借後審理的問題</li>
+			</ul>
 		</div>
 	</div><!-- /.container -->
 
