@@ -235,6 +235,13 @@
 					$( "#check" + id ).attr("class","btn btn-success");
 					$( "#check" + id ).text( "更新成功!!" );
 				}
+				else if( msg == "-3" )
+				{
+					$( "#check" + id ).trigger( "click" );	// call click event
+					$( "#check" + id ).attr("disabled","disabled");
+					$( "#check" + id ).attr("class","btn btn-danger");
+					$( "#check" + id ).text("時段衝突!!" );
+				}
 				else
 				{
 	//				$( "#check" + id ).attr("disabled","disabled");
