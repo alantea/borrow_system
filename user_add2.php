@@ -213,9 +213,18 @@
 								else if( $getresult == 'wait' )
 								{
 								*/
+								if( $wait_count == 0 )
+								{
 									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
-												 $str_ineh . ":" . $str_inem . " ";
+											 $str_ineh . ":" . $str_inem;
 									$wait_count++;
+								}
+								else
+								{
+									$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
 								//}
 							}
 							else if( ( $sm + $sh * 60 >= $insm + $insh * 60 ) &&
@@ -230,18 +239,29 @@
 								else if( $getresult == 'wait' )
 								{
 								*/
+								if( $wait_count == 0 )
+								{
 									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
-												 $str_ineh . ":" . $str_inem . " ";
+											 $str_ineh . ":" . $str_inem;
 									$wait_count++;
+								}
+								else
+								{
+									$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
 								//}
 							}
 						}
 //						echo "permit : " . $permit_msg . "<br>";
 						if( $wait_count != 0 )
 						{
-							echo '<tr><td colspan="2">目前已有 ' . $wait_count . 
-								 ' 個活動申請 , 時段分別為 : <br />' . $wait_msg . 
-								 '<br />若依舊想要借用請點選下一步</td></tr>';
+							echo '<tr>
+									<td colspan="2">
+									<span style="color : #FF0000">目前已有 ' . $wait_count . 
+								   ' 個活動申請</span>，時段分別為 : <br />' . $wait_msg . 
+								   '<br />若依舊想要借用請點選下一步</td></tr>';
 						}
 					?>
 				</tbody>

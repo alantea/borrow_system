@@ -199,10 +199,69 @@
 								{
 									echo '<li id="OtherLoc">申請場地須經生活事務組核章</li>';
 								}
+					echo '</ul></td></tr>';
+
+								// check borrow day have collision
+								$stmt = $mysqli->prepare("SELECT date,time,admin_result FROM dorm_list
+														  WHERE date = ? AND admin_result = 'wait'
+														  ORDER by time");
+								$stmt->bind_param("s" , $_POST['date'] );
+								$stmt->execute();
+								$stmt->bind_result($no,$gettime,$getresult);
+
+								$wait_msg = "";
+								$wait_count = 0;
+
+								while( $stmt->fetch() )
+								{
+									$str_time=$gettime;
+									$insh = (int)$str_insh = substr( $str_time , 0 , 2 );
+									$insm = (int)$str_insm = substr( $str_time , 2 , 2 );
+									$ineh = (int)$str_ineh = substr( $str_time , 4 , 2 );
+									$inem = (int)$str_inem = substr( $str_time , 6 , 2 );
+	
+									if( ( $sm + $sh * 60 < $insm + $insh * 60 ) &&
+										( $em + $eh * 60 > $insm + $insh * 60 ))
+									{
+										if( $wait_count == 0 )
+										{
+											$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+													 $str_ineh . ":" . $str_inem;
+											$wait_count++;
+										}
+										else
+										{
+											$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+														 $str_ineh . ":" . $str_inem;
+											$wait_count++;
+										}
+									}
+									else if( ( $sm + $sh * 60 >= $insm + $insh * 60 ) &&
+											 ( $sm + $sh * 60 < $inem + $ineh * 60 ))
+									{
+										if( $wait_count == 0 )
+										{
+											$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+													 $str_ineh . ":" . $str_inem;
+											$wait_count++;
+										}
+										else
+										{
+											$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+													 $str_ineh . ":" . $str_inem;
+											$wait_count++;
+										}
+									}
+								}
+								if( $wait_count != 0 )
+								{
+									echo '<tr>
+											<td colspan="2">
+											<span style="color : #FF0000">目前已有 ' . $wait_count . 
+										   ' 個活動申請</span>，時段分別為 : <br />' . $wait_msg . 
+										   '<br />若依舊想要借用請點選下一步</td></tr>';
+								}
 							?>
-						</ul>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 			<table class = "table1">
