@@ -239,76 +239,66 @@
 		});
 
 		$( "#nextstep" ).click(function(){
+			var error_msg = "";
 			if( $("#datepicker").val() == "" ) // check date
 			{
-				alert("請輸入日期");
-				return false;
+				error_msg += "請輸入日期\n";
 			}
 			else if( !isValidDate( $("#datepicker").val() ) )
 			{
-				alert("請輸入正確的日期");
-				return false;
+				error_msg += "請輸入正確的日期\n";
 			}
 			
 			// check time
 			if( ( $("#sh").val() > $("#eh").val() ) ||
 				(( $("#sh").val() == $("#eh").val() ) && ( $("#sm").val() >= $("#em").val() )) )
 			{
-				alert("請輸入正確時間");
-				return false;
-			}
-
-			if( $("#time").val() == "" )
-			{
-				alert("請輸入正確時間");
-				return false;
+				error_msg += "請輸入正確時間\n";
 			}
 
 			if( $("#loc").val() == "other" && $("#newloc").val() == "" )
 			{
-				alert("請輸入正確地點");
-				return false;
+				error_msg += "請輸入正確地點\n";
 			}
 
 			if( $("#club").val() == "" )
 			{
-				alert("請輸入社團");
-				return false;
+				error_msg += "請輸入社團\n";
 			}
 			
 			if( $("#pm").val() == "" )
 			{
-				alert("請輸入申請人");
-				return false;
+				error_msg += "請輸入申請人\n";
 			}
 
 			if( $("#name").val() == "" )
 			{
-				alert("請輸入活動名稱");
-				return false;
+				error_msg += "請輸入活動名稱\n";
 			}
 			
 			if( $("#phone").val() == "" )
 			{
-				alert("請輸入電話");
-				return false;
+				error_msg += "請輸入電話\n";
 			}
 			
 			if( $("#attend").val() == "" )
 			{
-				alert("請輸入參加人數");
-				return false;
+				error_msg += "請輸入參加人數\n";
 			}
 			else if( ($("#loc").val() == "大AB1" || $("#loc").val() == "大CB1") && 
 					  $("#attend").val() < 30 )
 			{
-				alert( $("#loc").val() + "參加人數需30人以上" );
-				return false;
+				error_msg += $("#loc").val() + "參加人數需30人以上\n";
 			}
 			
 			if( $("#aname").val() == "" )
 			{
-				alert("請輸入審核人員");
+				error_msg += "請輸入審核人員";
+			}
+			
+			if( error_msg != "" )
+			{
+				alert( error_msg );
 				return false;
 			}
 

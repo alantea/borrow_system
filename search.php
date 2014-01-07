@@ -128,10 +128,10 @@
 			$( "#formsubmit").click(function(event){
 				event.preventDefault();
 				var loc = false;
+				var error_msg = "";
 				if( $("#start").val() == "" || $("#end").val() == "" )
 				{
-					alert("請輸入區間");
-					return false;
+					error_msg += "請輸入區間\n";
 				}
 				$("input[name='select_loc[]']").each(function(){
 					if( $(this).prop("checked") )
@@ -141,7 +141,12 @@
 				});
 				if( !loc )
 				{
-					alert("請至少選擇一個場地");
+					error_msg += "請至少選擇一個場地";
+				}
+
+				if( error_msg != "" )
+				{
+					alert( error_msg );
 					return false;
 				}
 				
