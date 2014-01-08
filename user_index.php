@@ -59,6 +59,12 @@
 			<li>新增學士班宿舍部分場地的借用。填妥資料送出借用後待管理員審核通過，方可使用場地。</li></p>
 			<p><span class = "glyphicon glyphicon-list-alt" style = "margin-right:3px"></span>借用紀錄
 			<li>檢視你所借用的場地紀錄，包含場地目前的審核狀態。</li></p>
+			<p><span class = "glyphicon glyphicon-bold" style = "margin-right:3px"></span>瀏覽器<br>
+			<li>建議使用IE8以上(含)版本，或其他各大瀏覽器。並請開啟瀏覽器Javascript及cookies功能。</li></p>
+			<p><span class = "glyphicon glyphicon-home" style = "margin-right:3px"></span>首頁<br>
+			<li>可瀏覽已通過審核的借用。</li></p>
+			<p><span class = "glyphicon glyphicon-search" style = "margin-right:3px"></span>條件查詢<br>
+			<li>可依日期、地點作為條件，查詢已通過審核的借用。</li></p>
 		</div>
 		<div class="col-md-10" >
 		</div>
