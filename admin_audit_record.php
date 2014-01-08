@@ -103,7 +103,7 @@
 	
 			$stmt = $mysqli->prepare("SELECT id,date,time,loc,club,pm,name,phone,attend,bdate,btime,admin_name,
 											 admin_date,admin_result,admin_reason
-	                          FROM dorm_list WHERE admin_result != ? ORDER By date");
+	                          FROM dorm_list WHERE admin_result != ? ORDER By date DESC");
 	
 	$res = "wait";
 	$stmt->bind_param("s", $res);
