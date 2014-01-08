@@ -36,7 +36,7 @@
 	
 <body>
 
-	<?php include("user_navbar"); ?>
+	<?php include("user_navbar.php"); ?>
 	
 	<!-- content -->
 	<div class="container">
@@ -74,14 +74,14 @@
 					<tr>
 						<th>借用地點</th>
 						<td><?php
-							$str_date=$_POST['loc'];
-							if( $str_date=="other" )
+							$str_loc=$_POST['loc'];
+							if( $str_loc=="other" )
 							{
-								$str_date= $_POST['loc2'];
+								$str_loc= $_POST['loc2'];
 							}
-							echo ($str_date);
+							echo ($str_loc);
 							?></td>
-						<input type="hidden" name="loc" value="<?php echo($str_date);?>" />
+						<input type="hidden" name="loc" value="<?php echo($str_loc);?>" />
 					</tr>
 					<tr>
 						<th>申請社團</th>
@@ -120,6 +120,70 @@
 						<input type="hidden" name="areason" value="<?php echo($_POST['areason']);?>" />
 					</tr>
 					-->
+					<?php
+						// check borrow day have collision
+						require("config/config.php");
+						$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
+												  FROM dorm_list
+												  WHERE date = ? AND loc = ? AND admin_result = 'wait'
+												  ORDER by time");
+						$stmt->bind_param("ss" , $_POST['date'] , $str_loc );
+						$stmt->execute();
+						$stmt->bind_result($no,$gettime,$no,$getresult);
+
+						$wait_msg = "";
+						$wait_count = 0;
+
+						while( $stmt->fetch() )
+						{
+							$str_time=$gettime;
+							$insh = (int)$str_insh = substr( $str_time , 0 , 2 );
+							$insm = (int)$str_insm = substr( $str_time , 2 , 2 );
+							$ineh = (int)$str_ineh = substr( $str_time , 4 , 2 );
+							$inem = (int)$str_inem = substr( $str_time , 6 , 2 );
+	
+							if( ( $sm + $sh * 60 < $insm + $insh * 60 ) &&
+								( $em + $eh * 60 > $insm + $insh * 60 ))
+							{
+								if( $wait_count == 0 )
+								{
+									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
+								else
+								{
+									$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
+							}
+							else if( ( $sm + $sh * 60 >= $insm + $insh * 60 ) &&
+									 ( $sm + $sh * 60 < $inem + $ineh * 60 ))
+							{
+								if( $wait_count == 0 )
+								{
+									$wait_msg .= $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
+								else
+								{
+									$wait_msg .= " , " . $str_insh . ":" . $str_insm . " - " .
+											 $str_ineh . ":" . $str_inem;
+									$wait_count++;
+								}
+							}
+						}
+						if( $wait_count != 0 )
+						{
+							echo '<tr>
+									<td colspan="2">
+									<span style="color : #FF0000">目前已有 ' . $wait_count . 
+								   ' 個活動申請</span>，時段分別為 : <br />' . $wait_msg . 
+								   '<br />若依舊想要借用請點選下一步</td></tr>';
+						}
+					?>
 				</tbody>
 			</table>
 				<button type="submit" class="btn btn-default" id="nextstep">
@@ -132,5 +196,22 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+		$("#nextstep").click(function(){
+			var check_next = <?php echo($wait_count != 0) ? "true" : "false"; ?>;
+			if( check_next )
+			{
+				if( confirm("其他場次將會直接拒絕掉，請問真的要繼續嗎?" ) )
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			return true;
+		});
+    </script>
 </body>
 i</html>

@@ -50,7 +50,7 @@
 	
 <body>
 
-	<?php include("user_navbar"); ?>
+	<?php include("user_navbar.php"); ?>
 
 	<!-- content -->
 	<div class="container">
@@ -99,7 +99,7 @@
 					                              phone,attend,bdate,btime,admin_result,
 					                              admin_reason,sid
 					                              FROM dorm_list WHERE sid = ?
-					                              ORDER BY date");
+					                              ORDER BY date DESC");
 					
 					if( !($stmt->bind_param( "s" , $_SESSION['id'] )))
 					{

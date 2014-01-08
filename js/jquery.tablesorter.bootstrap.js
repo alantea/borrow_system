@@ -39,7 +39,8 @@ $(function() {
       zebra : ["even", "odd"],
 
       // reset filters button
-      filter_reset : ".reset"
+      filter_reset : ".reset",
+      filter_hideFilters : true
 
       // set the uitheme widget to use the bootstrap theme class names
       // this is no longer required, if theme is set
