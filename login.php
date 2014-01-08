@@ -36,7 +36,7 @@
 
 		<div class="container">
 			<form class="form-signin" action="login_check.php" method="POST">
-				<h2 class="form-signin-heading">CCU 場地借用系統</h2>
+				<h2 class="form-signin-heading">CCU 場地宿舍借用系統</h2>
 				<?php
 					if( isset( $_SESSION['login_fail']) )
 					{
