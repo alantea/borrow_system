@@ -14,7 +14,6 @@
 	
 	<!-- core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
-	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 
 	<!-- Custom styles -->
 	<link href="css/custom/fix-top.css" rel="stylesheet">
@@ -98,6 +97,7 @@
 	</div><!-- /.container -->
 
     <!-- core JavaScript -->
+	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
 		var item = document.getElementById("rules");

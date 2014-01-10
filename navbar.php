@@ -9,14 +9,14 @@
 				</button>
 				<a class="navbar-brand" href="index.php">CCU 宿舍場地借用</a>
 			</div>
-			<div class="collapse navbar-collapse">
+			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li id="search" ><a href="search.php" class="active">條件查詢</a></li>
 					<li id="rules" ><a href="rules.php">借用規則</a></li>
 				</ul>
-				<ul class="btn-group navbar-right" style="margin-top: 8px;">
-					<a href="login.php" class="btn btn-danger">Login</a>
-				</ul>
+				<div class="navbar-right" style="margin-top: 8px; margin-bottom: 4px;">
+					<a href="login.php" class="btn btn-success">登入</a>
+				</div>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>
