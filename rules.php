@@ -12,29 +12,18 @@
 	<meta name="author" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
-	<!-- Bootstrap core CSS -->
+	<!-- core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
-	<!-- Custom styles for this template -->
-	<link href="css/index.css" rel="stylesheet">
 	<link href="css/jquery-ui.min.css" rel="stylesheet" />
+
+	<!-- Custom styles -->
+	<link href="css/custom/fix-top.css" rel="stylesheet">
 
 	<!-- Javascript -->
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
-	<script>
-		$(document).ready(init);
-
-		function init(){
-			$("#rules").addClass('active');
-		}
-	</script>
 </head>
 	
 <body>
@@ -108,8 +97,11 @@
 
 	</div><!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		var item = document.getElementById("rules");
+		item.className = item.className + " active";
+	</script>
 </body>
 </html>

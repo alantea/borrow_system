@@ -46,7 +46,6 @@
 				?>
 				<input type="text" class="form-control" placeholder="學號" name="id" autofocus>
 				<input type="password" class="form-control" placeholder="密碼" name="pw" />
-				<p>帳號密碼同Ecourse</p>
 				<div class="radio">
 					<label class="col-xs-6">
 						<input type="radio" name="iden" value="student" checked>

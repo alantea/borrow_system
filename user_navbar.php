@@ -14,15 +14,12 @@
 					<li id="search" ><a href="search.php" class="active">條件查詢</a></li>
 					<li id="rules" ><a href="rules.php">借用規則</a></li>
 					<?php
-						if( $_SESSION['id'] == 'SE' )
-						{
-							echo '<li id="admin_index" ><a href="admin_index.php">管理介面</a></li>';
-						}
-						else
-						{
-							echo '<li id="user_rules" ><a href="user_rules.php">新增借用</a></li>';
-						}
-
+					if( $_SESSION['id'] == 'SE' ){
+						echo '<li id="admin_index" ><a href="admin_index.php">管理介面</a></li>';
+					}
+					else{
+						echo '<li id="user_rules" ><a href="user_rules.php">新增借用</a></li>';
+					}
 					?>
 				</ul>
 				<ul class="btn-group navbar-right" style="margin-top: 8px;">

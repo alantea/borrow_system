@@ -50,7 +50,7 @@
 			</ul>
 		</div>
 		
-		<div class="col-md-10" style="padding-top:5px">
+		<div class="col-md-10" style="padding-top:20px">
 			<table class="table table-hover">
 				<thead>
 					<tr>
