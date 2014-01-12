@@ -1,0 +1,29 @@
+body {
+	  padding-top: 70px;
+}
+.list {
+	position: relative;
+	top: 30px;
+}
+.table1{
+	border-style: solid;		
+	margin-top:20px;
+	margin-bottom:20px;
+	letter-spacing: 2px;
+	font-family:SimHei;
+}
+.ps{
+	line-height:30px;
+	font-size:18px;
+}
+.pr{
+	line-height:30px;
+	font-size:18px;
+	text-align:right;
+}
+.pd{
+	line-height:30px;
+	font-size:18px;
+	letter-spacing:30px;
+	text-align:center;
+}

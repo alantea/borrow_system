@@ -85,8 +85,8 @@
 					<button type="reset" id="clearall" class="btn btn-default">重填</button>
 				</div>
 			
-			</div>
-		</form>
+			</form>
+		</div>
 		<div id="search_table" class="col-md-6">
 		</div>
 	</div><!-- /.container -->
