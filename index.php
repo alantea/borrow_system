@@ -42,9 +42,8 @@
 		<div class="col-md-4" id="datepicker">
 		</div>
 		<div class="col-md-8">
-			<div>
-				<h4 id="alternate" class="CurrDate"></h4>
-			</div>
+			<h4 id="CurrDate" class="col-md-3 col-xs-3" style="padding:0px;"></h4>
+			<img id="loadingIMG" src="img/ajax-loader.gif" style="height:20px; width:20px; margin:10px; display:none;"/>
 			<table class="table table-hover" id="TimeTableDiv">
 				<thead>
 					<tr>

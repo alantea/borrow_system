@@ -113,6 +113,8 @@ function retrans( $x )
 
 		echo $list;
 	}
+	$stmt->close();
+	$mysqli->close();
 
 	if( !$borrowed )
 	{

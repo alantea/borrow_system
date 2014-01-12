@@ -1,12 +1,12 @@
 $(function() {
 	$( "#datepicker" ).datepicker(
 	{
-		altField: "#alternate",
+		altField: "#CurrDate",
 		altFormat: "yy-mm-dd" ,
 		onSelect: function()
 		{
 			var refresh="日期 : " + getday();
-			$( ".CurrDate" ).text( refresh );
+			$( "#CurrDate" ).text( refresh );
 			updateTimeTable( getday() );
 		}
 	});
@@ -23,6 +23,7 @@ function getday()
 
 function updateTimeTable(DateString)
 {
+	$('#loadingIMG').show();
 	var request = $.ajax({
 		url: "getdaylist.php",
 		type: "GET",
@@ -31,11 +32,12 @@ function updateTimeTable(DateString)
 	});
 	request.done(function(msg) {
 		$("#TimeTableDiv").html( msg );
+		$('#loadingIMG').hide();
 	});
 }
 
 jQuery(document).ready(function(){
 	var refresh="日期 : " + getday();
-	$( ".CurrDate" ).text( refresh );
+	$( "#CurrDate" ).text( refresh );
 	updateTimeTable(getday());
 });
