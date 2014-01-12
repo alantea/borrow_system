@@ -57,7 +57,7 @@ $(function() {
 			
 		var request = $.ajax({
 			url: "getsearchlist.php",
-			type: "POST",
+			type: "GET",
 			data: $("#search_form").serialize(),
 			dataType: "html"
 		});

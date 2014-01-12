@@ -5,39 +5,41 @@
 			<th>時間</th>
 		</tr>
 	</thead>
-<tbody>
-
+	<tbody>
 <?php
 	require("config/config.php");
-	$date = $_GET['date'];
-	if( $date == "" )
+	
+	if( isset( $_GET['date'] ) )
+	{
+		$date = $_GET['date'];
+	}
+	else
 	{
 		date_default_timezone_set("Asia/Taipei");
 		$date = date('Y-m-d', time());
 	}
-	
+
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date = ? AND admin_result = 'permit' ORDER BY time , loc");
+	                          FROM dorm_list
+	                          WHERE date = ? AND admin_result = 'permit' 
+	                          ORDER BY time , loc");
 	$stmt->bind_param("s", $date);
-
 	$stmt->execute();
-
-	$stmt->bind_result($date,$time,$loc,$ad_result);
+	$stmt->bind_result($nop,$time,$loc,$ad_result);
 
 	$borrowed = false;
 				
-	for( $i = 1 ;  $stmt->fetch() ; $i++ )
+	while( $stmt->fetch() )
 	{
-		// Unwrite the admin_result to print
 
 		$list = "<tr><td>";
-		if( strpos($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') === false )
+		if( strcmp($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') == 0 )
 		{
-			$list .= $loc . "</td><td>";
+			$list .= "CD棟前近樓梯處</td><td>";
 		}
 		else
 		{
-			$list .= "CD棟前近樓梯處</td><td>";
+			$list .= $loc . "</td><td>";
 		}
 						
 		$str_time=$time;
@@ -58,9 +60,6 @@
 	{
 		echo "<tr><td colspan='2'>本日無借用資料</td></tr>";
 	}
-
-	echo ("\n");
-	
 ?>
 	</tbody>
 </table>

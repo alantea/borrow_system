@@ -1,4 +1,4 @@
-<table class="table table-hover tablesorter">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th>日期</th>
@@ -6,7 +6,7 @@
 			<th>地點</th>
 		</tr>
 	</thead>
-<tbody>
+	<tbody>
 
 <?php
 
@@ -57,36 +57,33 @@ function retrans( $x )
 	}
 }
 
-	if( !(isset($_POST['stime']) && isset($_POST['etime']) &&
-		isset($_POST['select_loc']) && is_array($_POST['select_loc'])) )
+	if( !(isset($_GET['sdate']) && isset($_GET['edate']) &&
+		isset($_GET['select_loc']) && is_array($_GET['select_loc'])) )
 	{
-		echo 'error';
-
+		echo '部分資料未取得，請再輸入一次';
+		die();
 	}
 	
-
-	$show_loc = array(0,0,0,0,0,0,0,0);
+	$show_loc = array(0,0,0,0,0,0,0,0);	// check waht loc need to search
 	
-	foreach($_POST['select_loc'] as $value){
+	foreach($_GET['select_loc'] as $value){
 		$show_loc[ retrans( trans($value) ) ] = 1;
 	}
 
 	require("config/config.php");
 	
 	$stmt = $mysqli->prepare("SELECT date,time,loc,admin_result
-	                          FROM dorm_list WHERE date BETWEEN ? AND ? 
-	                          AND admin_result = 'permit' ORDER BY date ,time");
-	$stmt->bind_param("ss", $_POST['stime'] , $_POST['etime'] );
-
+	                          FROM dorm_list
+	                          WHERE date BETWEEN ? AND ? AND admin_result = 'permit'
+	                          ORDER BY date ,time");
+	$stmt->bind_param("ss", $_GET['sdate'] , $_GET['edate'] );
 	$stmt->execute();
-
 	$stmt->bind_result($date,$time,$loc,$ad_result);
 
 	$borrowed = false;
 	
-	for( $i = 1 ;  $stmt->fetch() ; $i++ )
+	while( $stmt->fetch() )
 	{
-		// Unwrite the admin_result to print
 		if( $show_loc[retrans($loc)] == 0 )
 		{
 			continue;
@@ -103,13 +100,13 @@ function retrans( $x )
 		$time = ($sh . ":" . $sm . " - " . $eh . ":" . $em);
 					
 		$list .= $time . "</td><td>";
-		if( strpos($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') === false )
+		if( strcmp($loc,'CD棟前近樓梯處(限借桌1張、椅2張)') == 0 )
 		{
-			$list .= $loc . "</td></tr>";
+			$list .= "CD棟前近樓梯處</td><td>";
 		}
 		else
 		{
-			$list .= "CD棟前近樓梯處</td></tr>";
+			$list .= $loc . "</td></tr>";
 		}
 
 		$borrowed = true;
@@ -122,7 +119,6 @@ function retrans( $x )
 		echo "<tr><td colspan='3'>無借用資料</td></tr>";
 	}
 	
-
 ?>
-
-</tbody>
+	</tbody>
+</table>

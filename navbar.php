@@ -15,7 +15,7 @@
 					<li id="rules" ><a href="rules.php">借用規則</a></li>
 				</ul>
 				<div class="navbar-right" style="margin-top: 8px; margin-bottom: 4px;">
-					<a href="login.php" class="btn btn-success">登入</a>
+					<a href="login.php" class="btn btn-info">登入</a>
 				</div>
 			</div><!--/.nav-collapse -->
 		</div>

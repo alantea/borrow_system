@@ -41,14 +41,14 @@
 	<!-- content -->
 	<div class="container">
 		<div id="search_list" class="col-md-3 well">
-			<form action="/" method="POST" id="search_form">
+			<form action="/" method="GET" id="search_form">
 				<legend>日期區間</legend>
 				
 				<label for="start">從</label>
-				<input type="text" class="form-control" id="start" name="stime" placeholder="開始時間" />
+				<input type="text" class="form-control" id="start" name="sdate" placeholder="開始日期" />
 				
 				<label for="end">到</label>
-				<input type="text" class="form-control" id="end" name="etime" placeholder="結束時間" />
+				<input type="text" class="form-control" id="end" name="edate" placeholder="結束日期" />
 		
 				<legend>地點</legend>
 				<div class="checkbox">

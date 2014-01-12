@@ -23,9 +23,9 @@
 					?>
 				</ul>
 				<div class="btn-group navbar-right" style="margin-top: 8px; margin-bottom: 4px;">
-					<a href="user_index.php" class="btn btn-info">
+					<a href="user_index.php" class="btn btn-success">
 						<span class="glyphicon glyphicon-thumbs-up"></span>Hi <?php echo $_SESSION['id']  ?></a>
-					<a href="logout.php" class="btn btn-info"  >登出</a>
+					<a href="logout.php" class="btn btn-success"  >登出</a>
 				</div>
 			</div><!--/.nav-collapse -->
 		</div>
