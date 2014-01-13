@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if(!isset( $_SESSION['id']) )
+	if(!isset( $_SESSION['id'] ) )
 	{
-		header("Location: index.php");
+		include("nologin.php");
 		die();
 	}
 ?>
@@ -17,29 +17,17 @@
 	<meta name="author" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
-	<!-- Bootstrap core CSS -->
+	<!-- core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
 
-	<!-- Custom styles for this template -->
-	<link href="css/jquery-ui.min.css" rel="stylesheet" />
-	<link href="css/user_index.css" rel="stylesheet" />
+	<!-- Custom styles -->
+	<link href="css/custom/user_fix-top.css" rel="stylesheet" />
 
 	<!-- Javascript -->
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.numeric.js"></script> <!-- source --!>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.ui.datepicker-zh-TW.min.js"></script>
-	<script>
-		$(function() {
-			//$( "#datepicker" ).datepicker( "option" , "dateFormat", "yy-mm-dd" );
-			$( "#datepicker" ).datepicker( { dateFormat : "yy-mm-dd" , minDate: -0, maxDate: +10  });
-		});
-	</script>
 </head>
 	
 <body>
@@ -48,14 +36,8 @@
 	
 	<!-- content -->
 	<div class="container">
-		<div class="col-md-2" style="padding:20px">
-			<ul class="nav">
-				<a href="user_rules.php" class="list-group-item active">新增借用</a>
-				<a href="user_record.php" class="list-group-item">借用紀錄</a>
-				<a href="user_index.php" class="list-group-item" >管理介面</a>
-			</ul>
-		</div>
-		<div class="col-md-6" style="padding-top:20px">
+		<?php include("user_left_navbar.php"); ?>
+		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					學士班宿舍場地申請登記注意事項
@@ -81,22 +63,25 @@
 				</div>
 			</div>
 			<form class="form-horizontal" role="form" action="user_add.php" method="POST">
-			<div class = "checkbox" style = "margin-bottom:10px">
+				<div class = "checkbox" style = "margin-bottom:10px">
 					<label>
-					<input type="checkbox" id="agree" name="agree">我已詳閱以上條款，並同意遵守配合。
+						<input type="checkbox" id="agree" name="agree">我已詳閱以上條款，並同意遵守配合。
 					</label>
 				</div>
-				<button type="submit" class="btn btn-default" id="nextstep">
+				<button type="submit" class="btn btn-default" id="nextstep" style="margin-bottom:10px">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
 			</form>
 		</div>
 	</div><!-- /.container -->
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
+    <!-- core JavaScript -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script>
+		$("#u_ru").addClass('active');
+		$("#user_rules").addClass('active');
+		
 		$( "#nextstep" ).click(function(){
 			var checked = $("#agree").is(':checked');
 			if(!checked)

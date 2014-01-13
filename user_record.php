@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	
 	if(!isset( $_SESSION['id'] ) )
 	{
 		include("nologin.php");
@@ -20,7 +19,6 @@
 	
 	<!-- core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
-	<link href="css/jquery-ui.min.css" rel="stylesheet" />
 	<link href="css/theme.bootstrap.css" rel="stylesheet" />
 
 	<!-- Custom styles -->
@@ -223,7 +221,6 @@
     <!-- core JavaScript -->
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.tablesorter.min.js"></script>
 	
 	<script src="js/jquery.tablesorter.bootstrap.js"></script>
