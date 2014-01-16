@@ -62,7 +62,7 @@
 				</ol>
 				</div>
 			</div>
-			<form class="form-horizontal" role="form" action="user_add.php" method="POST">
+			<form class="form-horizontal" role="form" action="user_add.php" method="GET">
 				<div class = "checkbox" style = "margin-bottom:10px">
 					<label>
 						<input type="checkbox" id="agree" name="agree">我已詳閱以上條款，並同意遵守配合。

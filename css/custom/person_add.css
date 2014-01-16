@@ -1,0 +1,34 @@
+@media (max-width: 767px) {
+	.time-name{
+		padding:3px 2px;
+	}
+	.time-sel{
+		padding:3px 6px;
+	}
+	.time-med{
+		height:34px;
+	}
+}
+
+/* for sm */
+@media (min-width: 768px) {
+	.time-sel{
+		width:52px;
+		padding:3px 6px;
+	}
+	.time-item{
+		width:110px;
+	}
+	.time-name{
+		width:20px;
+		padding:3px 2px;
+	}
+	.time-med{
+		height:34px;
+		width:30px;
+		padding: 5px;
+	}
+	.tooltip {
+	    width: 160px;
+	}
+}
