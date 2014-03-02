@@ -31,9 +31,13 @@
 								
 									if (!e.charCode) k = String.fromCharCode(e.which);
 										else k = String.fromCharCode(e.charCode);
-										
-									if (ch.indexOf(k) != -1) e.preventDefault();
+
+									if (ch.indexOf(k) != -1) e.preventDefault();									if (e.ctrlKey&&k=='v') e.preventDefault();
 									if (e.ctrlKey&&k=='v') e.preventDefault();
+									if (e.ctrlKey&&k=='a') e.preventDefault();
+									if (e.ctrlKey&&k=='x') e.preventDefault();
+									if (e.ctrlKey&&k=='c') e.preventDefault();
+									if (e.ctrlKey&&k=='z') e.preventDefault();
 									
 								}
 								

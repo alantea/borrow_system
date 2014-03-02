@@ -203,7 +203,7 @@
 					</div>
 				</div>
 
-				<button type="submit" class="btn btn-default" id="nextstep">
+				<button type="submit" class="btn btn-default" id="nextstep" style="margin-bottom:10px">
 					下一步	<span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
 
