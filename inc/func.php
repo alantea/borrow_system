@@ -1,10 +1,17 @@
 <?php
-
+	
+	/*
+	 * Check the two time is collision
+	 * Input time is start hour , start minutes , end hour, end time
+	 * Sample : 12001500
+	 * From 12:00 to 15:00
+	 */
 	function time_collision( $t1 , $t2 )
 	{
-		if( strlen($t1) != 4 || strlen($t2) != 4 )	// is not correct time
+		if( strlen($t1) != 8 || strlen($t2) != 8 )	// is not correct time
 		{
-			return false;
+			echo ("input time is not correct");
+			die();
 		}
 
 		$t1sh = (int)substr( $t1 , 0 , 2 );
@@ -33,4 +40,14 @@
 		}
 	}
 
+	/*
+	 * source : http://tw1.php.net/checkdate
+	 * check the date format is correct
+	 */
+
+	function validateDate($date, $format = 'Y-m-d H:i:s')
+	{
+		$d = DateTime::createFromFormat($format, $date);
+		return $d && $d->format($format) == $date;
+	}
 ?>
